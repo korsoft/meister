@@ -4,6 +4,7 @@
 		$scope.toggleLeft = buildToggler('left');
     	$scope.toggleRight = buildToggler('right');
     	$scope.claims = [];	
+    	$scope.total = null;
     	$scope.selected = [];
 
 
@@ -18,9 +19,12 @@
 	    		$state.go('claim-details');
 	    };
 
-	    ClaimsService.getList(function(response){
-	    	$scope.claims = response.claims;
-	    	console.log("claims",$scope.claims);
+	    ClaimsService.getList(function(err, result){
+	    	if(!err){
+	    		console.log("result",result);
+	    		$scope.total = result.total;
+	    		$scope.claims = result.data;
+	    	}
 	    });
 
 	    $scope.aproveConfirm = function(ev){
