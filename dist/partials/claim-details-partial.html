@@ -51,48 +51,48 @@
         
       <div layout="row" flex="100">
         
-        <div flex="50">
-           <h3>Cost Information</h3>
+        <div flex="50" >
+           <h4>Cost Information</h4>
            <table>
               <tr>
-                <td style="text-align: right;">Estimated:</td>
+                <td style="text-align: right;color:gray">Estimated:</td>
                 <td>$ 225,000</td>
               </tr>
               <tr>
-                <td style="text-align: right;">Required:</td>
+                <td style="text-align: right;color:gray">Required:</td>
                 <td>$ 357,750</td>
               </tr>
               <tr>
-                <td style="text-align: right;">Accepted:</td>
+                <td style="text-align: right;color:gray">Accepted:</td>
                 <td>$ 225,000</td>
               </tr>
            </table>
         </div>
         <div flex="50">
-          <h3>Appraisal Data</h3>
+          <h4>Appraisal Data</h4>
           <table>
               <tr>
-                <td style="text-align: right;">Project:</td>
+                <td style="text-align: right;color:gray">Project:</td>
                 <td>$ 225,000</td>
               </tr>
               <tr>
-                <td style="text-align: right;">WBS:</td>
+                <td style="text-align: right;color:gray">WBS:</td>
                 <td>$ 357,750</td>
               </tr>
               <tr>
-                <td style="text-align: right;">Code Tex:</td>
+                <td style="text-align: right;color:gray">Code Tex:</td>
                 <td>$ 225,000</td>
               </tr>
                <tr>
-                <td style="text-align: right;">Cause:</td>
+                <td style="text-align: right;color:gray">Cause:</td>
                 <td>$ 225,000</td>
               </tr>
                <tr>
-                <td style="text-align: right;">Start Date:</td>
+                <td style="text-align: right;color:gray">Start Date:</td>
                 <td>$ 225,000</td>
               </tr>
                <tr>
-                <td style="text-align: right;">End Date:</td>
+                <td style="text-align: right;color:gray">End Date:</td>
                 <td>$ 225,000</td>
               </tr>
            </table>
@@ -100,10 +100,10 @@
       </div>
         <div layout="row" flex="100">
 
-          <md-tabs md-dynamic-height md-border-bottom>
+          <md-tabs md-border-bottom flex="100" md-dynamic-height md-border-bottom>
       <md-tab label="Cost Matrix">
-        <md-content class="md-padding">
-          <h4>Cost Matrix</h4>
+        <md-content class="md-padding" flex="50"> 
+          <h4 >Cost Matrix</h4>
           <md-table-container >
             <table md-table md-row-select multiple ng-model="selected" >
               <thead md-head>
@@ -130,11 +130,15 @@
         </md-content>
       </md-tab>
       <md-tab label="Budget Matrix">
-        <md-content class="md-padding">
+        <md-content class="md-padding" flex="50">
           <h4>Budget Matrix</h4>
             <md-toolbar class="md-table-toolbar md-default"  ng-repeat-start="b in budgets">
               <div class="md-toolbar-tools">
-                <md-icon ng-bind="'keyboard_arrow_right'"  ng-click="!b.$show"></md-icon>
+               <md-button class="md-icon-button" aria-label="Settings" 
+                  ng-click="b.$show = !b.$show">
+                <md-icon ng-bind="b.$show == true ? 'keyboard_arrow_down' : 'keyboard_arrow_right'" ></md-icon>
+              </md-button>
+
                  <h2 flex md-truncate>{{b.wbs}}</h2>
               </div>
             </md-toolbar>

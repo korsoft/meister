@@ -323,6 +323,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "public/partials/claim-details-partial.html",
+			"settings":
+			{
+				"buffer_size": 5619,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dev/index.html",
+			"settings":
+			{
+				"buffer_size": 1935,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/controllers/claim-details-controller.js",
+			"settings":
+			{
+				"buffer_size": 1223,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -361,22 +387,27 @@
 	"expanded_folders":
 	[
 		"/home/jmoguel/dev/korsoftcorp/meister-server",
-		"/home/jmoguel/dev/korsoftcorp/meister"
+		"/home/jmoguel/dev/korsoftcorp/meister",
+		"/home/jmoguel/dev/korsoftcorp/meister/bower_components",
+		"/home/jmoguel/dev/korsoftcorp/meister/dev",
+		"/home/jmoguel/dev/korsoftcorp/meister/dev/bower_components",
+		"/home/jmoguel/dev/korsoftcorp/meister/dist",
+		"/home/jmoguel/dev/korsoftcorp/meister/public"
 	],
 	"file_history":
 	[
+		"/home/jmoguel/dev/korsoftcorp/meister/dist/index.html",
+		"/home/jmoguel/dev/korsoftcorp/meister/dev/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config/app.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/services/AuthenticationService-service.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/controllers/login-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/bower.json",
-		"/home/jmoguel/dev/korsoftcorp/meister/dev/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/config/app.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/gulpfile.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/karma.conf.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/login-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/AuthenticationService-service.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/login-controller.js",
-		"/home/jmoguel/dev/korsoftcorp/meister/dist/index.html",
 		"/home/jmoguel/dev/korsoftcorp/platform/app/User.php",
 		"/home/jmoguel/dev/korsoftcorp/platform/app/Http/Controllers/DynamicPageController.php",
 		"/home/jmoguel/dev/korsoftcorp/platform/app/InputForm.php",
@@ -527,8 +558,98 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public/partials/claim-details-partial.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4462,
+								4462
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1890.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dev/index.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1935,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/js/controllers/claim-details-controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1197,
+								1197
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -584,6 +705,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"claim-details-c",
+				"meister/public/js/controllers/claim-details-controller.js"
+			],
+			[
+				"claim-det",
+				"meister/public/partials/claim-details-partial.html"
+			],
 			[
 				"authentic",
 				"dev/public/js/services/AuthenticationService-service.js"
@@ -1087,14 +1216,6 @@
 			[
 				"client.ph",
 				"app/Client.php"
-			],
-			[
-				"app.bla",
-				"resources/views/layouts/app.blade.php"
-			],
-			[
-				"home.",
-				"resources/views/home.blade.php"
 			]
 		],
 		"width": 0.0
