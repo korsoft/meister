@@ -41,7 +41,7 @@
             Aprove
             </md-button>
 
-             <md-button class="md-raised md-warn md-button md-ink-ripple" style="color:white">
+             <md-button class="md-raised md-warn md-button md-ink-ripple" style="color:white" ng-disabled="tabSelected != 2" ng-click="simulate()">
             Simulate
             </md-button>
       </div>
@@ -101,7 +101,7 @@
         <div layout="row" flex="100">
 
           <md-tabs md-border-bottom flex="100" md-dynamic-height md-border-bottom>
-      <md-tab label="Cost Matrix">
+      <md-tab label="Cost Matrix" ng-click="tabSelected = 1">
         <md-content class="md-padding" flex="50"> 
           <h4 >Cost Matrix</h4>
           <md-table-container >
@@ -129,9 +129,11 @@
           </md-table-container>
         </md-content>
       </md-tab>
-      <md-tab label="Budget Matrix">
-        <md-content class="md-padding" flex="50">
-          <h4>Budget Matrix</h4>
+      <md-tab label="Budget Matrix" ng-click="tabSelected = 2">
+        <md-content  class="md-padding"  flex="100" layout="row">
+        <div flex="45">
+          <h4 ng-if="!is_simulated">Budget Matrix</h4>
+          <h4 ng-if="is_simulated">Before</h4>
             <md-toolbar class="md-table-toolbar md-default"  ng-repeat-start="b in budgets">
               <div class="md-toolbar-tools">
                <md-button class="md-icon-button" aria-label="Settings" 
@@ -166,7 +168,48 @@
             </table>
           </md-table-container>
    
-        </md-content>
+        </div>
+
+        <div flex="10"></div>
+
+         <div flex="45" ng-if="is_simulated">
+          <h4>After</h4>
+            <md-toolbar class="md-table-toolbar md-default"  ng-repeat-start="b in budgets">
+              <div class="md-toolbar-tools">
+               <md-button class="md-icon-button" aria-label="Settings" 
+                  ng-click="b.$show = !b.$show">
+                <md-icon ng-bind="b.$show == true ? 'keyboard_arrow_down' : 'keyboard_arrow_right'" ></md-icon>
+              </md-button>
+
+                 <h2 flex md-truncate>{{b.wbs}}</h2>
+              </div>
+            </md-toolbar>
+              <md-table-container ng-repeat-end ng-if="b.$show">
+            <table md-table md-row-select multiple ng-model="selected" >
+              <thead md-head>
+                <tr md-row>
+                  <th md-column>Item No.</th>
+                  <th md-column>Category</th>
+                  <th md-column>Cost Object</th>
+                  <th md-column>Plant</th>
+                  <th md-column>Total Price</th>
+                  <th md-column></th>
+                </tr>
+              </thead>
+              <tbody md-body>
+                <tr md-row md-select="c" md-auto-select ng-repeat="c in costs">
+                  <td md-cell>{{c.item_no}}</td>
+                  <td md-cell>{{c.category}}</td>
+                  <td md-cell>{{c.cost}}</td>
+                  <td md-cell>{{c.plant}}</td>
+                  <td md-cell>{{c.price}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </md-table-container>
+   
+        </div>
+      </md-content>
       </md-tab>
     </md-tabs>
 
