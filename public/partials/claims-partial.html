@@ -11,13 +11,23 @@
 
     
          <md-menu>
-       <md-button class="md-icon-button" aria-label="More" ng-click="$mdMenu.open()">
-          <md-icon ng-bind="'more_vert'"></md-icon>
+       <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdOpenMenu,$event)">
+          <md-icon md-menu-origin ng-bind="'more_vert'"></md-icon>
         </md-button>
-      <md-menu-content width="4" ng-mouseleave="$mdMenu.close()">
-        <md-menu-item ng-repeat="item in [1, 2, 3]">
+      <md-menu-content width="4" ng-mouseleave="close()">
+        <md-menu-item>
           <md-button>
-            Option {{item}}
+            <md-icon ng-bind="'info'"></md-icon> About
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <md-icon ng-bind="'perm_identity'"></md-icon> User preferences
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+           <md-icon ng-bind="'power_settings_new'"></md-icon> Logout
           </md-button>
         </md-menu-item>
       </md-menu-content>
@@ -31,7 +41,7 @@
     <div class="md-toolbar-tools">
         
         <h2 flex md-truncate>My Claims</h2>
-           <md-button class="md-raised md-primary md-button md-ink-ripple" style="color:white">
+           <md-button class="md-raised md-primary md-button md-ink-ripple" style="color:white" ng-click="aproveConfirm($event)" ng-disabled="selected.length == 0">
             Aprove
             </md-button>
       </div>
@@ -77,7 +87,7 @@
                 </tr>
               </thead>
               <tbody md-body>
-                <tr md-row md-select="c" md-auto-select ng-repeat="c in claims">
+                <tr md-row md-select="c" md-auto-select ng-disabled="c.WBS == '1-1200/1'" ng-repeat="c in claims">
                   <td md-cell>{{c.WBS}}</td>
                   <td md-cell>1</td>
                   <td md-cell>1</td>

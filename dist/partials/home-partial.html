@@ -25,15 +25,25 @@
 
         <h2 flex md-truncate>Meister Demo</h2>
 
-    
-         <md-menu>
-       <md-button class="md-icon-button" aria-label="More" ng-click="$mdMenu.open()">
-          <md-icon ng-bind="'more_vert'"></md-icon>
+      
+        <md-menu>
+       <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdOpenMenu,$event)">
+          <md-icon md-menu-origin ng-bind="'more_vert'"></md-icon>
         </md-button>
-      <md-menu-content width="4" ng-mouseleave="$mdMenu.close()">
-        <md-menu-item ng-repeat="item in [1, 2, 3]">
+      <md-menu-content width="4" ng-mouseleave="close()">
+        <md-menu-item>
           <md-button>
-            Option {{item}}
+            <md-icon ng-bind="'info'"></md-icon> About
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <md-icon ng-bind="'perm_identity'"></md-icon> User preferences
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+           <md-icon ng-bind="'power_settings_new'"></md-icon> Logout
           </md-button>
         </md-menu-item>
       </md-menu-content>
@@ -57,7 +67,7 @@
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>Launch</md-button>
+          <md-button class="md-raised md-primary md-button md-ink-ripple" style="color:white">Launch</md-button>
         </md-card-actions>
       </md-card>
 
@@ -72,7 +82,7 @@
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-click="gotoClaims()">Launch</md-button>
+          <md-button ng-click="gotoClaims()" class="md-raised md-primary md-button md-ink-ripple" style="color:white">Launch</md-button>
         </md-card-actions>
       </md-card>
      </div>
