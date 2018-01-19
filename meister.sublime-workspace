@@ -387,7 +387,7 @@
 			"file": "public/partials/claims-partial.html",
 			"settings":
 			{
-				"buffer_size": 3835,
+				"buffer_size": 3874,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -428,13 +428,19 @@
 			}
 		},
 		{
-			"contents": "<div ng-controller=\"ClaimDetailsController\" ng-cloak id=\"popupContainer\" ng-init=\"init()\">\n\n<md-toolbar class=\"md-hue-2\">\n\n\t  <div class=\"md-toolbar-tools\">\n        <md-button class=\"md-icon-button\" aria-label=\"Settings\" ng-click=\"gotoHome()\">\n         <md-icon ng-bind=\"'home'\"></md-icon>\n        </md-button>\n\n        <h2 flex md-truncate>Meister Demo</h2>\n\n    \n         <md-menu>\n       <md-button class=\"md-icon-button\" aria-label=\"More\" ng-click=\"openMenu($mdOpenMenu,$event)\">\n          <md-icon md-menu-origin ng-bind=\"'more_vert'\"></md-icon>\n        </md-button>\n      <md-menu-content width=\"4\" ng-mouseleave=\"close()\">\n        <md-menu-item>\n          <md-button>\n            <md-icon ng-bind=\"'info'\"></md-icon> About\n          </md-button>\n        </md-menu-item>\n        <md-menu-item>\n          <md-button>\n            <md-icon ng-bind=\"'perm_identity'\"></md-icon> User preferences\n          </md-button>\n        </md-menu-item>\n        <md-menu-item>\n          <md-button>\n           <md-icon ng-bind=\"'power_settings_new'\"></md-icon> Logout\n          </md-button>\n        </md-menu-item>\n      </md-menu-content>\n    </md-menu>\n\n      </div>\n\n    </md-toolbar>\n\n    <md-toolbar class=\"md-table-toolbar md-default\">\n\n    <div class=\"md-toolbar-tools\">\n        <md-button class=\"md-icon-button\" aria-label=\"Settings\" ng-click=\"gotoClaims()\">\n         <md-icon ng-bind=\"'keyboard_backspace'\"></md-icon>\n        </md-button>\n\n        <h2 flex md-truncate> {{claim.CLAIM}}</h2>\n\n    \n           <md-button class=\"md-raised md-primary md-button md-ink-ripple\" style=\"color:white\" ng-click=\"aproveConfirm($event)\">\n            Approve\n            </md-button>\n\n             <md-button class=\"md-raised md-warn md-button md-ink-ripple\" style=\"color:white\" ng-disabled=\"tabSelected != 2\" ng-click=\"simulate()\">\n            Simulate\n            </md-button>\n      </div>\n\n    </md-toolbar>\n\n        \n      <div layout=\"row\" layout-xs=\"column\">\n        \n        <div flex >\n           <h4>Cost Information</h4>\n           <table>\n              <tr>\n                <td style=\"text-align: right;color:gray\">Estimated:</td>\n                <td>{{claim.COSTS.ESTIMATED | currency}}</td>\n              </tr>\n              <tr>\n                <td style=\"text-align: right;color:gray\">Required:</td>\n                <td>{{claim.COSTS.REQUIRED | currency}}</td>\n              </tr>\n              <tr>\n                <td style=\"text-align: right;color:gray\">Accepted:</td>\n                <td>{{claim.COSTS.ACCEPTED | currency}}</td>\n              </tr>\n           </table>\n        </div>\n        <div flex>\n          <h4>Appraisal Data</h4>\n          <table>\n              <tr>\n                <td style=\"text-align: right;color:gray\">Project:</td>\n                <td>{{claim.APPRAISAL.PROJECT}}</td>\n              </tr>\n              <tr>\n                <td style=\"text-align: right;color:gray\">WBS:</td>\n                <td>{{claim.APPRAISAL.WBS}}</td>\n              </tr>\n              <tr>\n                <td style=\"text-align: right;color:gray\">Code Tex:</td>\n                <td>{{claim.APPRAISAL.CODE_TEXT}}</td>\n              </tr>\n               <tr>\n                <td style=\"text-align: right;color:gray\">Cause:</td>\n                <td>{{claim.APPRAISAL.CAUSE}}</td>\n              </tr>\n               <tr>\n                <td style=\"text-align: right;color:gray\">Start Date:</td>\n                <td>{{claim.APPRAISAL.START_DATE}}</td>\n              </tr>\n               <tr>\n                <td style=\"text-align: right;color:gray\">End Date:</td>\n                <td>{{claim.APPRAISAL.END_DATE}}</td>\n              </tr>\n           </table>\n        </div>\n      </div>\n        <div layout=\"row\" flex=\"100\">\n\n          <md-tabs md-border-bottom flex=\"100\" md-dynamic-height md-border-bottom>\n      <md-tab label=\"Cost Matrix\" ng-click=\"tabSelected = 1\">\n        <md-content class=\"md-padding\" flex=\"70\" flex-xs=\"100\"> \n          <h4 >Cost Matrix</h4>\n          <md-table-container >\n            <table md-table >\n              <thead md-head>\n                <tr md-row>\n                  <th md-column>Item No.</th>\n                  <th md-column>Category</th>\n                  <th md-column hide-xs>Cost Object</th>\n                  <th md-column hide-xs>Plant</th>\n                  <th md-column>Total Price</th>\n                </tr>\n              </thead>\n              <tbody md-body style=\"font-weight: bold\">\n                <tr md-row>\n                  <td md-cell>{{claim.COSTS.COST_MATRIX.ITEM_NO}}</td>\n                  <td md-cell>{{claim.COSTS.COST_MATRIX.CATEGORY}}</td>\n                  <td md-cell hide-xs>{{claim.COSTS.COST_MATRIX.COST_OBJECT}}</td>\n                  <td md-cell hide-xs>{{claim.COSTS.COST_MATRIX.PLANT}}</td>\n                  <td md-cell>{{claim.COSTS.COST_MATRIX.TOTAL_PRICE | currency}}</td>\n                </tr>\n              </tbody>\n            </table>\n          </md-table-container>\n        </md-content>\n      </md-tab>\n      <md-tab label=\"Budget Matrix\" ng-click=\"tabSelected = 2\">\n        <md-content  class=\"md-padding\"  flex=\"100\" layout=\"row\" layout-xs=\"column\">\n        <div flex=\"45\" flex-xs=\"100\">\n          <h4 ng-if=\"!is_simulated\">Budget Matrix</h4>\n          <h4 ng-if=\"is_simulated\">Before</h4>\n            <md-toolbar class=\"md-table-toolbar md-default\"  ng-repeat-start=\"b in claim.BUDGETS\">\n              <div class=\"md-toolbar-tools\">\n               <md-button class=\"md-icon-button\" aria-label=\"Settings\" \n                  ng-click=\"b.$show = !b.$show\">\n                <md-icon ng-bind=\"b.$show == true ? 'keyboard_arrow_down' : 'keyboard_arrow_right'\" ></md-icon>\n              </md-button>\n\n                 <h2 flex md-truncate>{{b.WBS_ELEMENT}}</h2>\n              </div>\n            </md-toolbar>\n              <md-table-container ng-repeat-end ng-if=\"b.$show\">\n            <table md-table>\n              <thead md-head>\n                <tr md-row>\n                  <th md-column>Year</th>\n                  <th md-column>Cost Plan</th>\n                  <th md-column>Distributed</th>\n                  <th md-column>Distributable</th>\n                </tr>\n              </thead>\n              <tbody md-body style=\"font-weight: bold\">\n                <tr md-row ng-repeat=\"c in b.COST\">\n                  <td md-cell>{{$last ? 'Overall' : ( (b.COST.length-2) == $index) ? 'Total' : c.YEAR}}</td>\n                  <td md-cell>{{c.COST_PLAN_TCUR | currency}}</td>\n                  <td md-cell>{{c.DISTRIBUTED_TCUR | currency}}</td>\n                  <td md-cell>{{c.DISTRIBUTABLE_TCUR | currency}}</td>\n                </tr>\n              </tbody>\n            </table>\n          </md-table-container>\n   \n        </div>\n\n        <div flex=\"10\" flex-xs=\"100\" style=\"height: 10px\"></div>\n\n         <div flex=\"45\" flex-xs=\"100\" ng-if=\"is_simulated\">\n          <h4>After</h4>\n            <md-toolbar class=\"md-table-toolbar md-default\"  ng-repeat-start=\"b in simulations\">\n              <div class=\"md-toolbar-tools\">\n               <md-button class=\"md-icon-button\" aria-label=\"Settings\" \n                  ng-click=\"b.$show = !b.$show\">\n                <md-icon ng-bind=\"b.$show == true ? 'keyboard_arrow_down' : 'keyboard_arrow_right'\" ></md-icon>\n              </md-button>\n\n                 <h2 flex md-truncate>{{b.WBS_ELEMENT}}</h2>\n              </div>\n            </md-toolbar>\n              <md-table-container ng-repeat-end ng-if=\"b.$show\">\n            <table md-table>\n              <thead md-head>\n                <tr md-row>\n                  <th md-column>Year</th>\n                  <th md-column>Cost Plan</th>\n                  <th md-column>Distributed</th>\n                  <th md-column>Distributable</th>\n                </tr>\n              </thead>\n              <tbody md-body style=\"font-weight: bold\">\n                <tr md-row ng-repeat=\"c in b.COST\">\n                  <td md-cell>{{$last ? 'Overall' : ( (b.COST.length-2) == $index) ? 'Total' : c.YEAR}}</td>\n                  <td md-cell><span ng-class=\"{'color-red':claim.BUDGETS[$parent.$index].COST[$index].COST_PLAN_TCUR != c.COST_PLAN_TCUR}\">{{c.COST_PLAN_TCUR | currency}}</span></td>\n                  <td md-cell><span ng-class=\"{'color-red':claim.BUDGETS[$parent.$index].COST[$index].DISTRIBUTED_TCUR != c.DISTRIBUTED_TCUR}\">{{c.DISTRIBUTED_TCUR | currency}}</span></td>\n                  <td md-cell><span ng-class=\"{'color-red':claim.BUDGETS[$parent.$index].COST[$index].DISTRIBUTABLE_TCUR != c.DISTRIBUTABLE_TCUR}\">{{c.DISTRIBUTABLE_TCUR | currency}}</span></td>\n                </tr>\n              </tbody>\n            </table>\n          </md-table-container>\n        </div>\n      </md-content>\n      </md-tab>\n    </md-tabs>\n\n        </div>\n     \n</div>",
 			"file": "public/partials/claim-details-partial.html",
-			"file_size": 8747,
-			"file_write_time": 131606902477434570,
 			"settings":
 			{
-				"buffer_size": 8746,
+				"buffer_size": 8803,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scss/app.scss",
+			"settings":
+			{
+				"buffer_size": 2037,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -494,11 +500,6 @@
 	"expanded_folders":
 	[
 		"/home/jmoguel/dev/korsoftcorp/meister",
-		"/home/jmoguel/dev/korsoftcorp/meister/bower_components",
-		"/home/jmoguel/dev/korsoftcorp/meister/bower_components/angular-material-data-table",
-		"/home/jmoguel/dev/korsoftcorp/meister/bower_components/angular-material-data-table/dist",
-		"/home/jmoguel/dev/korsoftcorp/meister/dev",
-		"/home/jmoguel/dev/korsoftcorp/meister/dev/bower_components",
 		"/home/jmoguel/dev/korsoftcorp/meister/scss"
 	],
 	"file_history":
@@ -669,7 +670,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -697,7 +698,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -706,15 +707,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3835,
+						"buffer_size": 3874,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3258,
-								3258
+								2132,
+								2132
 							]
 						],
 						"settings":
@@ -724,10 +725,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 19.0,
+						"translation.y": 556.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -756,7 +757,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -786,7 +787,7 @@
 						"translation.y": 675.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -815,7 +816,7 @@
 						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -845,7 +846,7 @@
 						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -854,15 +855,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8746,
+						"buffer_size": 8803,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1490,
-								1490
+								4484,
+								4484
 							]
 						],
 						"settings":
@@ -872,14 +873,44 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 630.0,
+						"translation.y": 450.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
+					"file": "scss/app.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2037,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1993,
+								1993
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1320.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "public/js/services/claims-service.js",
 					"semi_transient": false,
 					"settings":
@@ -905,11 +936,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
 					"semi_transient": false,
 					"settings":
@@ -934,7 +965,7 @@
 						"translation.y": 3859.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -1515,7 +1546,7 @@
 		[
 			[
 				"",
-				"~/dev/curso-angular2/curso-angular2.sublime-project"
+				"~/dev/sublime_projects/platform.sublime-project"
 			]
 		],
 		"width": 380.0
