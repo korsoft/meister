@@ -8,6 +8,10 @@
             return $http.get(SERVER_BASE_URL + '/reports');
         };
 
+        service.getDetails = function(kpi){
+        	return $http.get(SERVER_BASE_URL + '/reports/detail/' + kpi);
+        };
+
         return service;
     }]);
 })(meister);
