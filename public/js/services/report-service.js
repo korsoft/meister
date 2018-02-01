@@ -8,8 +8,8 @@
             return $http.get(SERVER_BASE_URL + '/reports');
         };
 
-        service.getDetails = function(kpi){
-        	return $http.get(SERVER_BASE_URL + '/reports/detail/' + kpi);
+        service.getDetails = function(pki){
+        	return $http.get(SERVER_BASE_URL + '/reports/detail/' + pki);
         };
 
         return service;
