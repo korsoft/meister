@@ -47,6 +47,14 @@ meister.constant('SERVER_BASE_URL', "http://localhost:8000/api");
             params: {
                 claimno: ''
             }
+        })
+        .state('reports-summary', {
+            url: '/reports-summary',
+            templateUrl: 'partials/reports-summary-partial.html',
+            controller: 'ReportSummaryController',
+            params: {
+                PKY: ''
+            }
         });
 
     }]).run(['$rootScope', '$location', '$cookieStore', '$http',

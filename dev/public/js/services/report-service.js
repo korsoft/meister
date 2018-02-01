@@ -8,6 +8,10 @@
             return $http.get(SERVER_BASE_URL + '/reports');
         };
 
+        service.getDetails = function(pki){
+        	return $http.get(SERVER_BASE_URL + '/reports/detail/' + pki);
+        };
+
         return service;
     }]);
 })(meister);
