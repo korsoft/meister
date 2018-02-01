@@ -583,7 +583,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -636,8 +636,8 @@
 						"selection":
 						[
 							[
-								4000,
-								3970
+								4033,
+								4033
 							]
 						],
 						"settings":
@@ -676,7 +676,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1511.0,
+						"translation.y": 1421.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1260,7 +1260,7 @@
 		[
 			[
 				"",
-				"~/dev/curso-angular2/curso-angular2.sublime-project"
+				"~/dev/sublime_projects/platform.sublime-project"
 			]
 		],
 		"width": 380.0
