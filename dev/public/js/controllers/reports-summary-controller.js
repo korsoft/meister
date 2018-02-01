@@ -5,8 +5,13 @@
 
 
 		$scope.data = {};
+		$scope.chartType ="bar";
 		
 		$scope.isMobileDevice = $mdMedia('xs');
+
+		$scope.chartData = [];
+		$scope.labels = [];
+
 
 		$scope.init = function(){
 			console.log($stateParams.PKY);
@@ -15,18 +20,23 @@
 	    	$scope.promise.then(
 		          function(result) { 
 		            	$scope.data = result.data;
-			    		
+			    		$scope.generateChart();
 		          },
 		          function(errorPayload) {
 		              console.log('failure loading report details', errorPayload);
 		          }
 		     );
+
 		}
 
-		$scope.gotoReport = function(r){
+		$scope.gotoReports = function(){
 			$state.go('reports');
 		};
 		
-		
+		$scope.generateChart = function(){
+			var report = ReportService.buildDataForGraphicReports($scope.data);
+			$scope.chartData = report.data;
+			$scope.labels = report.labels;
+		}
 	}]);
 })(meister);
