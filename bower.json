@@ -25,6 +25,7 @@
     "angular-cookies": "1.6.1",
     "angular-material-data-table": "^0.10.10",
     "underscore": "^1.8.3",
-    "angular-sanitize": "1.6.1"
+    "angular-sanitize": "1.6.1",
+    "chart.js": "^2.7.1"
   }
 }

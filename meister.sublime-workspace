@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"grou",
+				"groupsByDate"
+			],
+			[
+				"arr",
+				"arrResult"
+			],
+			[
+				"json",
+				"json_substring"
+			],
+			[
 				"simula",
 				"simulations"
 			],
@@ -392,19 +404,27 @@
 	"buffers":
 	[
 		{
-			"file": "public/partials/claims-partial.html",
+			"file": "public/js/services/report-service.js",
 			"settings":
 			{
-				"buffer_size": 5650,
+				"buffer_size": 957,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/js/controllers/claims-controller.js",
+			"file": "dist/index.html",
 			"settings":
 			{
-				"buffer_size": 5642,
+				"buffer_size": 1677,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/controllers/reports-summary-controller.js",
+			"settings":
+			{
+				"buffer_size": 925,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -447,29 +467,35 @@
 	"expanded_folders":
 	[
 		"/home/jmoguel/dev/korsoftcorp/meister",
-		"/home/jmoguel/dev/korsoftcorp/meister/dev",
-		"/home/jmoguel/dev/korsoftcorp/meister/scss"
+		"/home/jmoguel/dev/korsoftcorp/meister/dist",
+		"/home/jmoguel/dev/korsoftcorp/meister/node_modules"
 	],
 	"file_history":
 	[
-		"/home/jmoguel/dev/korsoftcorp/meister/dev/partials/claims-partial.html",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/reports-partial.html",
+		"/home/jmoguel/dev/korsoftcorp/meister-server/routes/api.php",
+		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/report-service.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/reports-controller.js",
+		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Kernel.php",
+		"/home/jmoguel/dev/korsoftcorp/meister/vendor/barryvdh/laravel-cors/config/cors.php",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/home-partial.html",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/home-controller.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config/app.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/controllers/reports-controller.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/claims-partial.html",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/claims-controller.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/dev/partials/claims-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/scss/app.scss",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/claim-details-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/claim-details-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/index.html",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config/app.js",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/public/partials/home-partial.html",
-		"/home/jmoguel/dev/korsoftcorp/meister-server/routes/api.php",
-		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/claims-service.js",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/home-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/bower.json",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/claims-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/public/public/js/config/app.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/api-utils.js",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/server.php",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/claims-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dist/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/services/AuthenticationService-service.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/controllers/login-controller.js",
@@ -573,13 +599,7 @@
 		"/home/jmoguel/dev/korsoftcorp/platform/public/lib/formBuilder/form-builder.css",
 		"/home/jmoguel/dev/korsoftcorp/platform/database/migrations/2017_12_08_181701_add_grids_to_input_form.php",
 		"/home/jmoguel/dev/korsoftcorp/platform/database/migrations/2017_12_06_140611_create_table_paypal_invoice.php",
-		"/home/jmoguel/dev/korsoftcorp/platform/app/PaypalInvoice.php",
-		"/home/jmoguel/dev/korsoftcorp/platform/app/ClientPaypal.php",
-		"/home/jmoguel/dev/korsoftcorp/platform/app/Http/Controllers/LocationController.php",
-		"/home/jmoguel/dev/korsoftcorp/platform/public/js/all.js",
-		"/home/jmoguel/dev/korsoftcorp/platform/resources/assets/js/app/app.constants.js",
-		"/home/jmoguel/dev/korsoftcorp/platform/config/app.php",
-		"/home/jmoguel/dev/korsoftcorp/platform/tests/OwncloudUsersTest.php"
+		"/home/jmoguel/dev/korsoftcorp/platform/app/PaypalInvoice.php"
 	],
 	"find":
 	{
@@ -620,54 +640,84 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/partials/claims-partial.html",
+					"file": "public/js/services/report-service.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5650,
+						"buffer_size": 957,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4033,
-								4033
+								812,
+								812
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dist/index.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1280.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "public/js/controllers/claims-controller.js",
+					"buffer": 2,
+					"file": "public/js/controllers/reports-summary-controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5642,
+						"buffer_size": 925,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4009,
-								4009
+								677,
+								677
 							]
 						],
 						"settings":
@@ -676,10 +726,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1421.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -737,6 +787,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"reports-su",
+				"meister/public/js/controllers/reports-summary-controller.js"
+			],
+			[
+				"cors.p",
+				"meister/vendor/barryvdh/laravel-cors/config/cors.php"
+			],
+			[
+				"kernel.php",
+				"meister-server/app/Http/Kernel.php"
+			],
 			[
 				"claim-deta",
 				"meister/public/js/controllers/claim-details-controller.js"
@@ -1236,18 +1298,6 @@
 			[
 				"questio",
 				"app/Question.php"
-			],
-			[
-				"input-form-serv",
-				"resources/assets/js/app/services/input-form-service.js"
-			],
-			[
-				"question",
-				"app/Questionaire.php"
-			],
-			[
-				"form-bu",
-				"public/lib/formBuilder/form-builder.js"
 			]
 		],
 		"width": 0.0
@@ -1282,7 +1332,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 367.0,
+	"side_bar_width": 317.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
