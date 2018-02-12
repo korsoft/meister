@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"report",
+				"report_name"
+			],
+			[
 				"grou",
 				"groupsByDate"
 			],
@@ -404,19 +408,11 @@
 	"buffers":
 	[
 		{
-			"file": "public/js/services/report-service.js",
+			"file": "public/partials/reports-summary-partial.html",
 			"settings":
 			{
-				"buffer_size": 957,
+				"buffer_size": 3583,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "dist/index.html",
-			"settings":
-			{
-				"buffer_size": 1677,
 				"line_ending": "Unix"
 			}
 		},
@@ -424,7 +420,24 @@
 			"file": "public/js/controllers/reports-summary-controller.js",
 			"settings":
 			{
-				"buffer_size": 925,
+				"buffer_size": 1594,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/config/app.js",
+			"settings":
+			{
+				"buffer_size": 2605,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/controllers/reports-controller.js",
+			"settings":
+			{
+				"buffer_size": 1453,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -468,20 +481,27 @@
 	[
 		"/home/jmoguel/dev/korsoftcorp/meister",
 		"/home/jmoguel/dev/korsoftcorp/meister/dist",
-		"/home/jmoguel/dev/korsoftcorp/meister/node_modules"
+		"/home/jmoguel/dev/korsoftcorp/meister/public",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/partials"
 	],
 	"file_history":
 	[
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/reports-summary-controller.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/reports-summary-partial.html",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/report-service.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config/app.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/dev/index.html",
+		"/home/jmoguel/dev/korsoftcorp/meister/dist/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/reports-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/routes/api.php",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/report-service.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/reports-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Kernel.php",
 		"/home/jmoguel/dev/korsoftcorp/meister/vendor/barryvdh/laravel-cors/config/cors.php",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/home-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/home-controller.js",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config/app.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/controllers/reports-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/claims-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/claims-controller.js",
@@ -489,14 +509,12 @@
 		"/home/jmoguel/dev/korsoftcorp/meister/scss/app.scss",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/claim-details-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/claim-details-partial.html",
-		"/home/jmoguel/dev/korsoftcorp/meister/dev/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/public/partials/home-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/claims-service.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/bower.json",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/public/public/js/config/app.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/api-utils.js",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/server.php",
-		"/home/jmoguel/dev/korsoftcorp/meister/dist/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/services/AuthenticationService-service.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/controllers/login-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/public/js/config/app.js",
@@ -597,9 +615,7 @@
 		"/home/jmoguel/dev/korsoftcorp/platform/resources/assets/js/app/services/question-service.js",
 		"/home/jmoguel/dev/korsoftcorp/platform/public/edit-grid-subform-modal.html",
 		"/home/jmoguel/dev/korsoftcorp/platform/public/lib/formBuilder/form-builder.css",
-		"/home/jmoguel/dev/korsoftcorp/platform/database/migrations/2017_12_08_181701_add_grids_to_input_form.php",
-		"/home/jmoguel/dev/korsoftcorp/platform/database/migrations/2017_12_06_140611_create_table_paypal_invoice.php",
-		"/home/jmoguel/dev/korsoftcorp/platform/app/PaypalInvoice.php"
+		"/home/jmoguel/dev/korsoftcorp/platform/database/migrations/2017_12_08_181701_add_grids_to_input_form.php"
 	],
 	"find":
 	{
@@ -640,46 +656,46 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/js/services/report-service.js",
+					"file": "public/partials/reports-summary-partial.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 957,
+						"buffer_size": 3583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								812,
-								812
+								2606,
+								2606
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "dist/index.html",
-					"semi_transient": true,
+					"file": "public/js/controllers/reports-summary-controller.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1677,
+						"buffer_size": 1594,
 						"regions":
 						{
 						},
@@ -692,32 +708,61 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "public/js/controllers/reports-summary-controller.js",
+					"file": "public/js/config/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 925,
+						"buffer_size": 2605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								677,
-								677
+								1840,
+								1840
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/js/controllers/reports-controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1192,
+								1192
 							]
 						],
 						"settings":
@@ -788,6 +833,22 @@
 		"selected_items":
 		[
 			[
+				"reports-summary-cont",
+				"meister/public/js/controllers/reports-summary-controller.js"
+			],
+			[
+				"reports-con",
+				"meister/public/js/controllers/reports-controller.js"
+			],
+			[
+				"app",
+				"meister/public/js/config/app.js"
+			],
+			[
+				"reports-sum",
+				"meister/public/js/controllers/reports-summary-controller.js"
+			],
+			[
 				"reports-su",
 				"meister/public/js/controllers/reports-summary-controller.js"
 			],
@@ -810,10 +871,6 @@
 			[
 				"claim-de",
 				"meister/public/partials/claim-details-partial.html"
-			],
-			[
-				"app",
-				"meister/public/js/config/app.js"
 			],
 			[
 				"home",
@@ -1286,18 +1343,6 @@
 			[
 				"questionanswercontr",
 				"app/Http/Controllers/QuestionAnswerController.php"
-			],
-			[
-				"inputformcont",
-				"app/Http/Controllers/InputFormController.php"
-			],
-			[
-				"inputformco",
-				"app/Http/Controllers/InputFormController.php"
-			],
-			[
-				"questio",
-				"app/Question.php"
 			]
 		],
 		"width": 0.0
