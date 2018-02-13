@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"COST",
+				"COST_MATRIX"
+			],
+			[
 				"report",
 				"report_name"
 			],
@@ -408,37 +412,36 @@
 	"buffers":
 	[
 		{
-			"file": "public/partials/reports-summary-partial.html",
+			"file": "/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
 			"settings":
 			{
-				"buffer_size": 3583,
+				"buffer_size": 10483,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/js/controllers/reports-summary-controller.js",
+			"file": "dist/partials/claim-details-partial.html",
 			"settings":
 			{
-				"buffer_size": 1594,
+				"buffer_size": 8790,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/js/config/app.js",
+			"file": "public/partials/claim-details-partial.html",
 			"settings":
 			{
-				"buffer_size": 2605,
+				"buffer_size": 8790,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/js/controllers/reports-controller.js",
+			"file": "scss/app.scss",
 			"settings":
 			{
-				"buffer_size": 1453,
-				"encoding": "UTF-8",
+				"buffer_size": 2199,
 				"line_ending": "Unix"
 			}
 		}
@@ -480,24 +483,20 @@
 	"expanded_folders":
 	[
 		"/home/jmoguel/dev/korsoftcorp/meister",
-		"/home/jmoguel/dev/korsoftcorp/meister/dist",
-		"/home/jmoguel/dev/korsoftcorp/meister/public",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/partials"
+		"/home/jmoguel/dev/korsoftcorp/meister/scss"
 	],
 	"file_history":
 	[
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/reports-summary-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/reports-summary-partial.html",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/report-service.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/reports-summary-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/js/config/app.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/reports-controller.js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/services/report-service.js",
 		"/home/jmoguel/dev/korsoftcorp/meister/dev/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/dist/index.html",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/reports-partial.html",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/routes/api.php",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
-		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers/reports-controller.js",
 		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Kernel.php",
 		"/home/jmoguel/dev/korsoftcorp/meister/vendor/barryvdh/laravel-cors/config/cors.php",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials/home-partial.html",
@@ -619,7 +618,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -656,24 +655,53 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/partials/reports-summary-partial.html",
+					"file": "/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3583,
+						"buffer_size": 10483,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2606,
-								2606
+								4400,
+								4400
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2025.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dist/partials/claim-details-partial.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4491,
+								4883
 							]
 						],
 						"settings":
@@ -683,19 +711,49 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1575.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "public/js/controllers/reports-summary-controller.js",
+					"buffer": 2,
+					"file": "public/partials/claim-details-partial.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1594,
+						"buffer_size": 8790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4493,
+								4493
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1710.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scss/app.scss",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2199,
 						"regions":
 						{
 						},
@@ -708,73 +766,15 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/js/config/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2605,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1840,
-								1840
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 450.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/js/controllers/reports-controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1453,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1192,
-								1192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
