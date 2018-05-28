@@ -466,8 +466,16 @@
 			"file": "public/partials/home-partial.html",
 			"settings":
 			{
-				"buffer_size": 2985,
+				"buffer_size": 3250,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
+			"settings":
+			{
+				"buffer_size": 11973,
 				"line_ending": "Unix"
 			}
 		},
@@ -526,10 +534,15 @@
 	},
 	"expanded_folders":
 	[
+		"/home/jmoguel/dev/korsoftcorp/meister-server",
+		"/home/jmoguel/dev/korsoftcorp/meister-server/app",
+		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http",
+		"/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers",
 		"/home/jmoguel/dev/korsoftcorp/meister",
 		"/home/jmoguel/dev/korsoftcorp/meister/dist",
-		"/home/jmoguel/dev/korsoftcorp/meister/dist/partials",
 		"/home/jmoguel/dev/korsoftcorp/meister/public",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js",
+		"/home/jmoguel/dev/korsoftcorp/meister/public/js/controllers",
 		"/home/jmoguel/dev/korsoftcorp/meister/public/partials",
 		"/home/jmoguel/dev/korsoftcorp/meister/scss"
 	],
@@ -707,7 +720,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -737,7 +750,7 @@
 						"translation.y": 601.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -753,8 +766,8 @@
 						"selection":
 						[
 							[
-								366,
-								366
+								4271,
+								4271
 							]
 						],
 						"settings":
@@ -764,10 +777,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1620.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -797,7 +810,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -806,15 +819,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2985,
+						"buffer_size": 3250,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								276,
-								302
+								246,
+								596
 							]
 						],
 						"settings":
@@ -827,11 +840,40 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "/home/jmoguel/dev/korsoftcorp/meister-server/app/Http/Controllers/MiddleRestController.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 11973,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3458,
+								3458
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1710.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "public/partials/reports-partial.html",
 					"semi_transient": false,
 					"settings":
@@ -857,11 +899,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "public/partials/reports-summary-partial.html",
 					"semi_transient": false,
 					"settings":
@@ -887,7 +929,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
