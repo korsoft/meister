@@ -1,0 +1,159 @@
+<div ng-controller="ClaimsController" ng-cloak ng-init="init(false)">
+
+
+
+<md-toolbar class="md-hue-2">
+
+	  <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="gotoHome()">
+         <md-icon ng-bind="'home'"></md-icon>
+        </md-button>
+
+        <h2 flex md-truncate>RL Demos</h2>
+
+    
+         <md-menu>
+       <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdOpenMenu,$event)">
+          <md-icon md-menu-origin ng-bind="'more_vert'"></md-icon>
+        </md-button>
+      <md-menu-content width="4" ng-mouseleave="close()">
+        <md-menu-item>
+          <md-button>
+            <md-icon ng-bind="'info'"></md-icon> About
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <md-icon ng-bind="'perm_identity'"></md-icon> User preferences
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+           <md-icon ng-bind="'power_settings_new'"></md-icon> Logout
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+      </div>
+
+    </md-toolbar>
+
+    <md-content class="md-padding" layout="row">
+    
+     <div layout="row" flex="100" layout-xs="column">
+        
+        <div flex="40" flex-xs="100" >
+          <fieldset>
+            <legend>Partner Info</legend>
+            <div layout="row" flex="100" style="margin-bottom: 17px">
+              <div flex="30">
+                <label>Ship To:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+            <div layout="row" flex="100" style="margin-bottom: 17px">
+              <div flex="30">
+                <label>Sold To:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+            <div layout="row" flex="100" style="margin-bottom: 17px">
+              <div flex="30">
+                <label>Payer:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+            <div layout="row" flex="100" style="margin-bottom: 20px">
+              <div flex="30">
+                <label>Ship To:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+          </fieldset>
+        </div>
+        <div flex="50" flex-xs="100">
+           <fieldset>
+            <legend>Sales Selection</legend>
+            <div layout="row" flex="100" style="margin-bottom: 10px">
+              <div flex="30">
+                <label>Organization:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+            <div layout="row" flex="100" style="margin-bottom: 10px">
+              <div flex="30">
+                <label>Channel:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+            <div layout="row" flex="100" style="margin-bottom: 10px">
+              <div flex="30">
+                <label>Division:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+            <div layout="row" flex="100" style="margin-bottom: 10px">
+              <div flex="30">
+                <label>Office:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+            <div layout="row" flex="100" style="margin-bottom: 10px">
+              <div flex="30">
+                <label>Group:</label>
+              </div>
+              <div flex="70">
+                <select name="shipTo" style="width:80%">
+                  <option></option>
+                </select>
+              </div> 
+            </div>
+          </fieldset>
+        </div>
+        <div flex="10" flex-xs="100" style="margin-top: 10px">
+            <div layout="column">
+              <button flex="100" style="margin-bottom: 7px">BI Xfer</button>
+              <button flex="100" style="margin-bottom: 7px">Notes</button>
+              <button flex="100" style="margin-bottom: 7px" disabled="true">Sales/Partner</button>
+              <button flex="100" style="margin-bottom: 7px" disabled="true">Sales/Item</button>
+              <button flex="100" style="margin-bottom: 7px" disabled="true">ATS</button>
+              <button flex="100" style="margin-bottom: 7px" disabled="true">Analytics</button>
+            </div>
+        </div>
+    </div>
+     
+ </md-content>
+</div>
