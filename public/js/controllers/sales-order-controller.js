@@ -45,6 +45,8 @@
 		$scope.officeSelected = "";
 		$scope.groupSelected = "";
 
+		$scope.materialCatalog = [];
+
 		$scope.changeShipTo = function(item){
 			if(item != ""){
 				var endpoint = "Meister.Demo.Po.Mat.Catalog";
@@ -53,6 +55,7 @@
 				$scope.promise.then(
 		          function(result) { 
 		          	console.log("SalesOrderService.execute result",result);		        	  
+		          	$scope.materialCatalog = result.data.Json;
 		     	  },
 		          function(errorPayload) {
 		              console.log('SalesOrderService.execute failure', errorPayload);
