@@ -1,4 +1,4 @@
-<div ng-controller="ClaimsController" ng-cloak ng-init="init(false)">
+<div ng-controller="ClaimsController" ng-cloak>
 
 
 
@@ -51,8 +51,9 @@
                 <label>Ship To:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="shipTo" style="width:80%" ng-model="shipToSelected" ng-change="changeShipTo(shipToSelected)">
+                  <option value=""></option>
+                  <option ng-repeat="s in shipToArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -61,8 +62,9 @@
                 <label>Sold To:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="soldTo" style="width:80%" ng-model="soldToSelected">
+                  <option value=""></option>
+                  <option ng-repeat="s in soldToArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -71,8 +73,9 @@
                 <label>Payer:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="payer" style="width:80%" ng-model="payerSelected">
+                  <option value=""></option>
+                  <option ng-repeat="s in payerArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -81,8 +84,9 @@
                 <label>Ship To:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="shipTo2" style="width:80%" ng-model="shipTo2Selected">
+                  <option value=""></option>
+                  <option ng-repeat="s in shipToArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -96,8 +100,9 @@
                 <label>Organization:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="organization" style="width:80%" ng-model="organizarionSelected">
+                  <option value=""></option>
+                  <option ng-repeat="s in organizationArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -106,8 +111,9 @@
                 <label>Channel:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="channel" style="width:80%" ng-model="channelSelected">
+                  <option value=""></option>
+                  <option ng-repeat="s in channelArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -116,8 +122,9 @@
                 <label>Division:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="division" style="width:80%" ng-model="divisionSelected">
+                  <option value=""></option>
+                  <option ng-repeat="s in divisionArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -126,8 +133,9 @@
                 <label>Office:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="office" style="width:80%" ng-model="officeSelected">
+                  <option value=""></option>
+                  <option ng-repeat="s in officeArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>
@@ -136,8 +144,9 @@
                 <label>Group:</label>
               </div>
               <div flex="70">
-                <select name="shipTo" style="width:80%">
-                  <option></option>
+                <select name="group" style="width:80%" ng-model="groupSelected">
+                  <option value=""></option>
+                  <option ng-repeat="s in groupArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
               </div> 
             </div>

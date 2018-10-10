@@ -36,7 +36,7 @@ meister.constant('SERVER_BASE_URL', "http://localhost:8000/api");
         .state('sales_order', {
             url: '/SalesOrder',
             templateUrl: 'partials/sales-order-partial.html',
-            controller: 'ClaimsController',
+            controller: 'SalesOrderController',
             params: {
                 filters: []
             }
