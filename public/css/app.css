@@ -99,3 +99,41 @@
   font-weight: bold !important;
   text-align: left !important;
   font-size: 16px !important; }
+
+.search-set {
+  height: 230px; }
+
+body {
+  background-color: #f0f0f0; }
+
+md-content.md-default-theme, md-content {
+  background-color: #f0f0f0; }
+
+.table-set {
+  padding-right: 5px;
+  padding-left: 5px;
+  min-width: 0; }
+
+.table-container {
+  height: 200px;
+  background-color: #ABABAB;
+  border: 1px solid black;
+  overflow: auto; }
+
+md-table-container {
+  display: inline-table;
+  background-color: white; }
+
+table.md-table th.md-column {
+  border-bottom: 1px solid;
+  border-right: 1px solid; }
+
+table.md-table td.md-cell {
+  border-bottom: 1px solid;
+  border-right: 1px solid; }
+
+md-table-container {
+  min-width: 100%; }
+
+.add-notes {
+  margin-top: 15px; }
