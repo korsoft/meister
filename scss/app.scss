@@ -126,14 +126,12 @@ md-toolbar {
     padding-left:5px !important;
   }
 
-  md-content.md-default-theme, md-content {
-      background-color: #f0f0f0;
-  }
-
   .table-set{
     padding-right: 5px;
     padding-left: 5px;
     min-width: 0;
+    border-color: #8c83bd;
+
   }
 
 
@@ -151,6 +149,10 @@ md-toolbar {
     background-color:#ABABAB;
     border: 1px solid black;
     overflow: auto;
+  }
+
+  .table-container-2{
+    height:50px;
   }
 
   md-table-container {

@@ -119,13 +119,11 @@
 .demo-so .td-space {
   padding-left: 5px !important; }
 
-.demo-so md-content.md-default-theme, .demo-so md-content {
-  background-color: #f0f0f0; }
-
 .demo-so .table-set {
   padding-right: 5px;
   padding-left: 5px;
-  min-width: 0; }
+  min-width: 0;
+  border-color: #8c83bd; }
 
 .demo-so table.md-table thead.md-head > tr.md-row {
   height: 35px;
@@ -139,6 +137,9 @@
   background-color: #ABABAB;
   border: 1px solid black;
   overflow: auto; }
+
+.demo-so .table-container-2 {
+  height: 50px; }
 
 .demo-so md-table-container {
   display: inline-table;

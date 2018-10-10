@@ -39,134 +39,80 @@
 
     </md-toolbar>
 
-  <md-content class="md-padding" layout="column">
+  <md-content class="md-padding" layout="row">
     
-     <div layout="row" flex="100" layout-xs="column">
-        
-        <div flex="40" flex-xs="100" >
-          <fieldset class="search-set">
-            <legend>Partner Info</legend>
-            <div layout="row" flex="100" style="margin-bottom: 17px">
-              <div flex="30">
-                <label>Ship To:</label>
-              </div>
-              <div flex="70">
-                <select name="shipTo" style="width:80%" ng-model="shipToSelected" ng-change="changeShipTo(shipToSelected)">
+    <div layout="row" flex="100" layout-xs="column">
+
+
+     <div flex="25" flex-xs="100">
+        <div layout="column" >
+          <fieldset class="table-set" >
+          <h5>Partner Info</h5>
+          <label>Ship To:</label>
+          <select name="shipTo" style="width:100%" ng-model="shipToSelected" ng-change="changeShipTo(shipToSelected)">
                   <option value=""></option>
                   <option ng-repeat="s in shipToArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-            <div layout="row" flex="100" style="margin-bottom: 17px">
-              <div flex="30">
-                <label>Sold To:</label>
-              </div>
-              <div flex="70">
-                <select name="soldTo" style="width:80%" ng-model="soldToSelected">
+          <br/>
+          <label>Sold To:</label>
+          <select name="soldTo" style="width:100%" ng-model="soldToSelected">
                   <option value=""></option>
                   <option ng-repeat="s in soldToArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-            <div layout="row" flex="100" style="margin-bottom: 17px">
-              <div flex="30">
-                <label>Payer:</label>
-              </div>
-              <div flex="70">
-                <select name="payer" style="width:80%" ng-model="payerSelected">
+          <br/>
+            <label>Payer:</label>
+          <select name="payer" style="width:100%" ng-model="payerSelected">
                   <option value=""></option>
                   <option ng-repeat="s in payerArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-            <div layout="row" flex="100" style="margin-bottom: 20px">
-              <div flex="30">
-                <label>Ship To:</label>
-              </div>
-              <div flex="70">
-                <select name="shipTo2" style="width:80%" ng-model="shipTo2Selected">
+          <br/>    
+          <label>Ship To:</label>
+          <select name="shipTo2" style="width:100%" ng-model="shipTo2Selected">
                   <option value=""></option>
                   <option ng-repeat="s in shipToArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-          </fieldset>
-        </div>
-        <div flex="50" flex-xs="100">
-           <fieldset class="search-set">
-            <legend>Sales Selection</legend>
-            <div layout="row" flex="100" style="margin-bottom: 10px">
-              <div flex="30">
-                <label>Organization:</label>
-              </div>
-              <div flex="70">
-                <select name="organization" style="width:80%" ng-model="organizarionSelected">
+          <br/>
+           <h5>Sales Selection</h5>
+            <label>Organization:</label>
+              <select name="organization" style="width:100%" ng-model="organizarionSelected">
                   <option value=""></option>
                   <option ng-repeat="s in organizationArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-            <div layout="row" flex="100" style="margin-bottom: 10px">
-              <div flex="30">
-                <label>Channel:</label>
-              </div>
-              <div flex="70">
-                <select name="channel" style="width:80%" ng-model="channelSelected">
+            <br/>
+            <label>Channel:</label>
+            <select name="channel" style="width:100%" ng-model="channelSelected">
                   <option value=""></option>
                   <option ng-repeat="s in channelArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-            <div layout="row" flex="100" style="margin-bottom: 10px">
-              <div flex="30">
-                <label>Division:</label>
-              </div>
-              <div flex="70">
-                <select name="division" style="width:80%" ng-model="divisionSelected">
+             <br/>
+             <label>Division:</label>
+             <select name="division" style="width:100%" ng-model="divisionSelected">
                   <option value=""></option>
                   <option ng-repeat="s in divisionArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-            <div layout="row" flex="100" style="margin-bottom: 10px">
-              <div flex="30">
-                <label>Office:</label>
-              </div>
-              <div flex="70">
-                <select name="office" style="width:80%" ng-model="officeSelected">
+            <br/>
+            <label>Office:</label>
+            <select name="office" style="width:100%" ng-model="officeSelected">
                   <option value=""></option>
                   <option ng-repeat="s in officeArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
-            <div layout="row" flex="100" style="margin-bottom: 10px">
-              <div flex="30">
+            <br/>
                 <label>Group:</label>
-              </div>
-              <div flex="70">
-                <select name="group" style="width:80%" ng-model="groupSelected">
+                <select name="group" style="width:100%" ng-model="groupSelected">
                   <option value=""></option>
                   <option ng-repeat="s in groupArray" value="{{s.value}}">{{s.label}}</option>
                 </select>
-              </div> 
-            </div>
           </fieldset>
-        </div>
-        <div flex="10" flex-xs="100" style="margin-top: 10px">
-            <div layout="column">
-              <button flex="100" style="margin-bottom: 7px">BI Xfer</button>
-              <button flex="100" style="margin-bottom: 7px">Notes</button>
-              <button flex="100" style="margin-bottom: 7px" disabled="true">Sales/Partner</button>
-              <button flex="100" style="margin-bottom: 7px" disabled="true">Sales/Item</button>
-              <button flex="100" style="margin-bottom: 7px" disabled="true">ATS</button>
-              <button flex="100" style="margin-bottom: 7px" disabled="true">Analytics</button>
-            </div>
+              
         </div>
     </div>
-    <div layout="column" flex="100" >
+
+    <div flex="65" flex-xs="100" >
+      <div >
        
+       <b>Material Catalog</b>
         <fieldset class="table-set" >
-          <legend>Material Catalog</legend>
+          
           <div flex="100" class="table-container">
             <md-table-container ng-show="materialCatalog && materialCatalog.length>0">
               <table md-table md-row-select ng-model="materialSelected" md-progress="materialCatalogProgress">
@@ -193,81 +139,86 @@
             </md-table-container> 
           </div>
         </fieldset>
-        
-    </div>
-    <div class="add-notes" layout="row" flex="100" layout-xs="column" style="padding-top: 10px">
-      <div layout="row" flex="30" flex-xs="100" style="margin-bottom: 10px">
-        <div flex="30">
-          <label>Order#:</label>
-        </div>
-        <div flex="70">
-          <select name="order" ng-model="orderSelected" style="width:80%" ng-disabled="shipToSelected == '' || shipTo2Selected == '' || soldToSelected == '' || payerSelected == '' || organizarionSelected == '' || channelSelected == '' || divisionSelected == '' || officeSelected == '' || groupSelected == ''" ng-change="changeOrder(orderSelected)">
-            <option value=""></option>
-            <option value="20168">20168</option>
-            <option value="NEW">New SO</option>
-          </select>
-        </div> 
-      </div>
-      <div flex flex-xs="100">
-         No Sales Document Selected yet
-      </div>
-      <div flex="10" flex-xs="100">
-        <button>Add Notes</button>
-      </div>
-    </div>
-    <div layout="column" flex="100" style="padding-top: 10px">
-      <fieldset class="table-set" >
-          <legend>Sales Order Info</legend>
-          <div flex="100" class="table-container">
+       
           </div>
-      </fieldset>
-    </div>
-    <div style="padding-top: 10px" layout="row" layout-xs="column" flex="100" >
-      <div flex="30" flex-xs="100" style="padding-bottom: 10px">
-          <button disabled="true">Add Item</button>
-      </div>
-      <div flex="30" flex-xs="100" style="padding-bottom: 10px">
-            Multiplier
-            <input type="range" style="width:70%" flex="100" ng-model="multiplier" min="1" max="30" step="1" list="tickmarks">{{multiplier}}
-          <datalist id="tickmarks">
-            <option value="0">
-            <option value="2">
-            <option value="4">
-            <option value="6">
-            <option value="8">
-            <option value="10">
-            <option value="12">
-            <option value="14">
-            <option value="16">
-            <option value="18">
-            <option value="20">
-            <option value="22">
-            <option value="24">
-            <option value="26">
-            <option value="28">
-            <option value="30">
-          </datalist>
-           
-      </div>
-      <div flex="30" flex-xs="100"></div>
-       <div flex="10" flex-xs="100" style="padding-bottom: 50px">
-          <button>Notes ...</button> 
-      </div>
-    </div>
 
-    <div layout="column" flex="100" style="padding-top: 10px;" >
+       <div >
+             
+             <fieldset class="table-set" style="border: 0px">
+
+          <div flex="100" class="table-container-2">
+            <label>Order Number:</label>
+          <select name="order" style="width: 200px" ng-model="orderSelected" ng-disabled="shipToSelected == '' || shipTo2Selected == '' || soldToSelected == '' || payerSelected == '' || organizarionSelected == '' || channelSelected == '' || divisionSelected == '' || officeSelected == '' || groupSelected == ''" ng-change="changeOrder(orderSelected)">
+              <option value=""></option>
+              <option value="20168">20168</option>
+              <option value="NEW">New SO</option>
+            </select>
+          
+             <label>Number of lines</label>
+            <input type="range" style="width:300px" ng-model="multiplier" min="1" max="30" step="1" >{{multiplier}}
+          
+          </div>
+        </fieldset>
+      </div> 
+
+      <div >
+       
+       <b>Sales Order Info</b>
+        <fieldset class="table-set" >
+          <div flex="100" class="table-container">
+            <md-table-container" ng-show="false">
+              <table md-table >
+                <thead md-head >
+                  <tr md-row>
+                    <th md-column class="td-space"><span>Description</span></th>
+                    <th md-column class="td-space"><span>Group</span></th>
+                    <th md-column class="td-space"><span>Material</span></th>
+                    <th md-column class="td-space"><span>Plant</span></th>
+                    <th md-column class="td-space"><span>Price</span></th>
+                    <th md-column class="td-space"><span>Uom</span></th>
+                </thead>
+                <tbody md-body> 
+                 
+                </tbody>
+              </table>
+            </md-table-container> 
+          </div>
+        </fieldset>
+       
+          </div>
+
+      <div style="padding-top: 20px">
+        <b>Execution Log</b>
       <fieldset class="table-set" >
-          <legend>Execution Log:</legend>
           <div flex="100"  class="table-container" style="background-color: #e2dfdf;height: 120px">
             <span ng-bind-html="log" style="font-size: 12px"></span>
           </div>
       </fieldset>
     </div>
-    <div flex="100" layout="row" style="padding-top: 10px">
+
+    <div >
       <div layout="column" layout-xs="row" flex="90" flex-xs="100"></div>
       <div layout="column" layout-xs="row" flex="10" flex-xs="100" style="padding-bottom: 50px">
           <button style="width: 100px">Log</button>
       </div>
+    </div>
+
+</div>
+
+
+    
+
+  <div flex="10" flex-xs="100" >
+     <div layout="column" style="padding-top: 20px">
+           
+              <button style="margin-bottom: 7px;width: 110px">BI Xfer</button>
+              <button style="margin-bottom: 7px;width: 110px">Notes</button>
+              <button style="margin-bottom: 7px;width: 110px" disabled="true">Sales/Partner</button>
+              <button style="margin-bottom: 7px;width: 110px" disabled="true">Analytics</button>
+              <button style="margin-bottom: 7px;width: 110px" disabled="true">Add Others</button>
+            </div>
+  </div>
+   
     </div>
      
   </md-content>
