@@ -161,3 +161,10 @@
 
 .demo-so .add-notes {
   margin-top: 15px; }
+
+.demo-so md-checkbox.md-default-theme.md-checked .md-icon, .demo-so md-checkbox.md-checked .md-icon {
+  background-color: rgba(130, 123, 126, 0.87); }
+
+.demo-so table.md-table.md-row-select td.md-cell:first-child, .demo-so table.md-table.md-row-select th.md-column:first-child {
+  width: 20px;
+  padding: 0; }

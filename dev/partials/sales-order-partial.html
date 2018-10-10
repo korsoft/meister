@@ -169,10 +169,9 @@
           <legend>Material Catalog</legend>
           <div flex="100" class="table-container">
             <md-table-container ng-show="materialCatalog && materialCatalog.length>0">
-              <table  md-table md-progress="materialCatalogProgress">
+              <table md-table md-row-select ng-model="materialSelected" md-progress="materialCatalogProgress">
                 <thead md-head >
-                  <tr md-row class="">
-                    <th md-column class="td-space"></th>
+                  <tr md-row>
                     <th md-column class="td-space"><span>Description</span></th>
                     <th md-column class="td-space"><span>Group</span></th>
                     <th md-column class="td-space"><span>Material</span></th>
@@ -181,8 +180,7 @@
                     <th md-column class="td-space"><span>Uom</span></th>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row ng-repeat="m in materialCatalog">
-                    <td md-cell class="td-space"></td>
+                  <tr md-row md-auto-select md-select="m" ng-repeat="m in materialCatalog" >
                     <td md-cell class="td-space">{{m.DESCRIPTION}}</td>
                     <td md-cell class="td-space">{{m.GROUP}}</td>
                     <td md-cell class="td-space">{{m.MATERIAL}}</td>
@@ -203,8 +201,10 @@
           <label>Order#:</label>
         </div>
         <div flex="70">
-          <select name="order" style="width:80%">
-            <option></option>
+          <select name="order" ng-model="orderSelected" style="width:80%" ng-disabled="shipToSelected == '' || shipTo2Selected == '' || soldToSelected == '' || payerSelected == '' || organizarionSelected == '' || channelSelected == '' || divisionSelected == '' || officeSelected == '' || groupSelected == ''" ng-change="changeOrder(orderSelected)">
+            <option value=""></option>
+            <option value="20168">20168</option>
+            <option value="NEW">New SO</option>
           </select>
         </div> 
       </div>

@@ -47,6 +47,8 @@
 		$scope.multiplier = 10;
 		$scope.materialCatalog = [];
 		$scope.log = "";
+		$scope.materialSelected = [];
+		$scope.orderSelected = 0;
 
 		function getExecutionTimeBetween2Dates(a, b){
 
@@ -90,6 +92,15 @@
 			}
 		};
 
+		$scope.changeOrder = function(order){
+			if(order == '')
+				return;
+			if(order == "NEW"){ //crete a new order
+
+			} else { //load order selected
+
+			}
+		};
 		
 	}]);
 })(meister);
