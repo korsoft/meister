@@ -9,7 +9,7 @@
          <md-icon ng-bind="'home'"></md-icon>
         </md-button>
 
-        <h2 flex md-truncate>RL Demos</h2>
+        <h2 flex md-truncate>Sales Order</h2>
 
     
          <md-menu>
@@ -169,7 +169,7 @@
           <legend>Material Catalog</legend>
           <div flex="100" class="table-container">
             <md-table-container ng-show="materialCatalog && materialCatalog.length>0">
-              <table  md-table >
+              <table  md-table md-progress="materialCatalogProgress">
                 <thead md-head >
                   <tr md-row class="">
                     <th md-column class="td-space"></th>
@@ -197,8 +197,8 @@
         </fieldset>
         
     </div>
-    <div class="add-notes" layout="row" flex="100" >
-      <div layout="row" flex="30" style="margin-bottom: 10px">
+    <div class="add-notes" layout="row" flex="100" layout-xs="column" style="padding-top: 10px">
+      <div layout="row" flex="30" flex-xs="100" style="margin-bottom: 10px">
         <div flex="30">
           <label>Order#:</label>
         </div>
@@ -208,19 +208,66 @@
           </select>
         </div> 
       </div>
-      <div flex>
+      <div flex flex-xs="100">
          No Sales Document Selected yet
       </div>
-      <div flex=10>
+      <div flex="10" flex-xs="100">
         <button>Add Notes</button>
       </div>
     </div>
-    <div layout="column" flex="100" >
+    <div layout="column" flex="100" style="padding-top: 10px">
       <fieldset class="table-set" >
           <legend>Sales Order Info</legend>
           <div flex="100" class="table-container">
           </div>
       </fieldset>
+    </div>
+    <div style="padding-top: 10px" layout="row" layout-xs="column" flex="100" >
+      <div flex="30" flex-xs="100" style="padding-bottom: 10px">
+          <button disabled="true">Add Item</button>
+      </div>
+      <div flex="30" flex-xs="100" style="padding-bottom: 10px">
+            Multiplier
+            <input type="range" style="width:70%" flex="100" ng-model="multiplier" min="1" max="30" step="1" list="tickmarks">{{multiplier}}
+          <datalist id="tickmarks">
+            <option value="0">
+            <option value="2">
+            <option value="4">
+            <option value="6">
+            <option value="8">
+            <option value="10">
+            <option value="12">
+            <option value="14">
+            <option value="16">
+            <option value="18">
+            <option value="20">
+            <option value="22">
+            <option value="24">
+            <option value="26">
+            <option value="28">
+            <option value="30">
+          </datalist>
+           
+      </div>
+      <div flex="30" flex-xs="100"></div>
+       <div flex="10" flex-xs="100" style="padding-bottom: 50px">
+          <button>Notes ...</button> 
+      </div>
+    </div>
+
+    <div layout="column" flex="100" style="padding-top: 10px;" >
+      <fieldset class="table-set" >
+          <legend>Execution Log:</legend>
+          <div flex="100"  class="table-container" style="background-color: #e2dfdf;height: 120px">
+            <span ng-bind-html="log" style="font-size: 12px"></span>
+          </div>
+      </fieldset>
+    </div>
+    <div flex="100" layout="row" style="padding-top: 10px">
+      <div layout="column" layout-xs="row" flex="90" flex-xs="100"></div>
+      <div layout="column" layout-xs="row" flex="10" flex-xs="100" style="padding-bottom: 50px">
+          <button style="width: 100px">Log</button>
+      </div>
     </div>
      
   </md-content>

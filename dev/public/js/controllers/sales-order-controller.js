@@ -44,17 +44,43 @@
 		$scope.divisionSelected = "";
 		$scope.officeSelected = "";
 		$scope.groupSelected = "";
-
+		$scope.multiplier = 10;
 		$scope.materialCatalog = [];
+		$scope.log = "";
+
+		function getExecutionTimeBetween2Dates(a, b){
+
+		    // make checks to make sure a and b are not null
+		    // and that they are date | integers types
+
+		    diff = Math.abs(a - b);
+
+		    ms = diff % 1000;
+		    diff = (diff - ms) / 1000
+		    ss = diff % 60;
+		    diff = (diff - ss) / 60
+		    mm = diff % 60;
+		    diff = (diff - mm) / 60
+		    hh = diff % 24;
+		    days = (diff - hh) / 24
+
+		    return "Execution time " + hh+"."+mm+"."+ss+"."+ms+" hrs.min.sec.msec";
+
+		}
 
 		$scope.changeShipTo = function(item){
 			if(item != ""){
 				var endpoint = "Meister.Demo.Po.Mat.Catalog";
 				var json = '{"VENDOR":"' + item + '","PLANT":"' + item + '","PURORG":"' + item + '"}';
-				$scope.promise = SalesOrderService.execute(endpoint, json);
-				$scope.promise.then(
+				$scope.log = "Executing Get Catalog<br/>" + $scope.log;
+				var start = new Date();
+				$scope.materialCatalogProgress = SalesOrderService.execute(endpoint, json);
+				$scope.materialCatalogProgress.then(
 		          function(result) { 
+		          	var end = new Date();
 		          	console.log("SalesOrderService.execute result",result);		        	  
+		          	$scope.log = "Completed Get Catalog<br/>" + $scope.log;
+		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
 		          	$scope.materialCatalog = result.data.Json;
 		     	  },
 		          function(errorPayload) {
