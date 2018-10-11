@@ -44,71 +44,100 @@
     <div layout="row" flex="100" layout-xs="column">
 
 
-     <div flex="25" flex-xs="100">
+     <div flex="20" flex-xs="100">
         <div layout="column" >
           <fieldset class="table-set" >
           <h5>Partner Info</h5>
+          <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
           <label>Ship To:</label>
-          <select name="shipTo" style="width:100%" ng-model="shipToSelected" ng-change="changeShipTo(shipToSelected)">
-                  <option value=""></option>
-                  <option ng-repeat="s in shipToArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-          <br/>
+          <md-select ng-model="shipToSelected" ng-change="changeShipTo(shipToSelected)">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in shipToArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
           <label>Sold To:</label>
-          <select name="soldTo" style="width:100%" ng-model="soldToSelected">
-                  <option value=""></option>
-                  <option ng-repeat="s in soldToArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-          <br/>
-            <label>Payer:</label>
-          <select name="payer" style="width:100%" ng-model="payerSelected">
-                  <option value=""></option>
-                  <option ng-repeat="s in payerArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-          <br/>    
+           <md-select ng-model="soldToSelected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in soldToArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
+              <label>Payer:</label>
+              <md-select ng-model="payerSelected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in payerArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
           <label>Ship To:</label>
-          <select name="shipTo2" style="width:100%" ng-model="shipTo2Selected">
-                  <option value=""></option>
-                  <option ng-repeat="s in shipToArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-          <br/>
+          <md-select ng-model="shipTo2Selected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in shipToArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+          </md-input-container>
+
            <h5>Sales Selection</h5>
+           <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
             <label>Organization:</label>
-              <select name="organization" style="width:100%" ng-model="organizarionSelected">
-                  <option value=""></option>
-                  <option ng-repeat="s in organizationArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-            <br/>
+               <md-select ng-model="organizationSelected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in organizationArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
             <label>Channel:</label>
-            <select name="channel" style="width:100%" ng-model="channelSelected">
-                  <option value=""></option>
-                  <option ng-repeat="s in channelArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-             <br/>
+             <md-select ng-model="channelSelected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in channelArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+             </md-input-container>
+             <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
              <label>Division:</label>
-             <select name="division" style="width:100%" ng-model="divisionSelected">
-                  <option value=""></option>
-                  <option ng-repeat="s in divisionArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-            <br/>
+            <md-select ng-model="divisionSelected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in divisionArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
             <label>Office:</label>
-            <select name="office" style="width:100%" ng-model="officeSelected">
-                  <option value=""></option>
-                  <option ng-repeat="s in officeArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
-            <br/>
+              <md-select ng-model="officeSelected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in officeArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px">
                 <label>Group:</label>
-                <select name="group" style="width:100%" ng-model="groupSelected">
-                  <option value=""></option>
-                  <option ng-repeat="s in groupArray" value="{{s.value}}">{{s.label}}</option>
-                </select>
+                <md-select ng-model="groupSelected">
+                <md-option ng-value=""></md-option>
+                  <md-option ng-repeat="s in groupArray" ng-value="s.value" >
+                    {{s.label}}
+                  </md-option>
+                </md-select>
+            </md-input-container> 
           </fieldset>
               
         </div>
     </div>
 
-    <div flex="65" flex-xs="100" >
-      <div >
+    <div flex="70" flex-xs="100" >
+      <div  layout="column" flex="100">
        
        <b>Material Catalog</b>
         <fieldset class="table-set" >
@@ -124,6 +153,7 @@
                     <th md-column class="td-space"><span>Plant</span></th>
                     <th md-column class="td-space"><span>Price</span></th>
                     <th md-column class="td-space"><span>Uom</span></th>
+                  </tr>
                 </thead>
                 <tbody md-body> 
                   <tr md-row md-auto-select md-select="m" ng-repeat="m in materialCatalog" >
@@ -139,29 +169,29 @@
             </md-table-container> 
           </div>
         </fieldset>
-       
-          </div>
+       </div>
 
-       <div >
+       <div layout="column"  flex="100">
              
              <fieldset class="table-set" style="border: 0px">
 
           <div flex="100" class="table-container-2">
-            <label>Order Number:</label>
-          <select name="order" style="width: 200px" ng-model="orderSelected" ng-disabled="shipToSelected == '' || shipTo2Selected == '' || soldToSelected == '' || payerSelected == '' || organizarionSelected == '' || channelSelected == '' || divisionSelected == '' || officeSelected == '' || groupSelected == ''" ng-change="changeOrder(orderSelected)">
+            <label style="font-size: 12px;font-weight: bold;">Order Number:</label>
+          <select style="width: 100px" name="order" ng-model="orderSelected" ng-disabled="!shipToSelected || !shipTo2Selected || !soldToSelected || !payerSelected || !organizationSelected || !channelSelected || !divisionSelected || !officeSelected || !groupSelected" ng-change="changeOrder(orderSelected)">
               <option value=""></option>
               <option value="20168">20168</option>
               <option value="NEW">New SO</option>
             </select>
-          
-             <label>Number of lines</label>
-            <input type="range" style="width:300px" ng-model="multiplier" min="1" max="30" step="1" >{{multiplier}}
-          
+            &nbsp;
+           <label style="font-size: 12px;font-weight: bold;">Number of lines</label>
+           <input type="Number" style="width: 40px" ng-model="multiplier" min="1" max="30">
+            <!--<input style="width: 200px" type="range" ng-model="multiplier" min="1" max="30" step="1" ><b style="font-size: 12px">{{multiplier}}</b>
+            -->
           </div>
         </fieldset>
       </div> 
 
-      <div >
+      <div layout="column"  flex="100">
        
        <b>Sales Order Info</b>
         <fieldset class="table-set" >
@@ -176,9 +206,11 @@
                     <th md-column class="td-space"><span>Plant</span></th>
                     <th md-column class="td-space"><span>Price</span></th>
                     <th md-column class="td-space"><span>Uom</span></th>
+                  </tr>
                 </thead>
                 <tbody md-body> 
-                 
+                  <tr md-row>
+                  </tr>
                 </tbody>
               </table>
             </md-table-container> 
@@ -187,7 +219,7 @@
        
           </div>
 
-      <div style="padding-top: 20px">
+      <div style="padding-top: 20px" layout="column"  flex="100">
         <b>Execution Log</b>
       <fieldset class="table-set" >
           <div flex="100"  class="table-container" style="background-color: #e2dfdf;height: 120px">
@@ -196,7 +228,7 @@
       </fieldset>
     </div>
 
-    <div >
+    <div layout="column"  flex="100">
       <div layout="column" layout-xs="row" flex="90" flex-xs="100"></div>
       <div layout="column" layout-xs="row" flex="10" flex-xs="100" style="padding-bottom: 50px">
           <button style="width: 100px">Log</button>
@@ -210,12 +242,22 @@
 
   <div flex="10" flex-xs="100" >
      <div layout="column" style="padding-top: 20px">
-           
-              <button style="margin-bottom: 7px;width: 110px">BI Xfer</button>
-              <button style="margin-bottom: 7px;width: 110px">Notes</button>
-              <button style="margin-bottom: 7px;width: 110px" disabled="true">Sales/Partner</button>
-              <button style="margin-bottom: 7px;width: 110px" disabled="true">Analytics</button>
-              <button style="margin-bottom: 7px;width: 110px" disabled="true">Add Others</button>
+           <md-button class="md-raised md-primary md-button">
+            BI Xfer
+            </md-button>
+            <md-button class="md-raised md-primary md-button">
+            Notes
+            </md-button>
+            <md-button class="md-raised md-primary md-button" style="font-size: 13px">
+           Sales/Partner
+            </md-button>
+            <md-button ng-disabled="true" class="md-raised md-primary md-button">
+           Analytics
+            </md-button>
+            <md-button ng-disabled="true" class="md-raised md-primary md-button">
+            Add Others
+            </md-button>
+              
             </div>
   </div>
    

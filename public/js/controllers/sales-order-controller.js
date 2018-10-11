@@ -71,7 +71,8 @@
 		}
 
 		$scope.changeShipTo = function(item){
-			if(item != ""){
+			console.log("changeShipTo",item);
+			if(item && item != ""){
 				var endpoint = "Meister.Demo.Po.Mat.Catalog";
 				var json = '{"VENDOR":"' + item + '","PLANT":"' + item + '","PURORG":"' + item + '"}';
 				$scope.log = "Executing Get Catalog<br/>" + $scope.log;

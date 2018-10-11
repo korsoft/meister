@@ -139,7 +139,8 @@
   overflow: auto; }
 
 .demo-so .table-container-2 {
-  height: 50px; }
+  height: 60px;
+  overflow: auto; }
 
 .demo-so md-table-container {
   display: inline-table;
