@@ -1,4 +1,4 @@
-<div ng-controller="ClaimsController" ng-cloak class="demo-so demo-background">
+<div ng-controller="SalesOrderController" ng-cloak class="demo-so demo-background">
 
 
 
@@ -136,14 +136,34 @@
         </div>
     </div>
 
-    <div flex="70" flex-xs="100" >
-      <div  layout="column" flex="100">
+    <div flex="65" flex-xs="100" >
+
+      <div layout="column" flex="100">
+        <md-tabs md-dynamic-height md-selected="tabSelected">
+          <md-tab label="Sales Order">
+          </md-tab>
+          <md-tab label="Sales/Partner">
+            
+          </md-tab>
+          <md-tab label="Sales/Item">
+            
+          </md-tab>
+          <md-tab label="Analytics">
+            
+          </md-tab>
+          <md-tab label="Add Notes">
+            
+          </md-tab>
+        </md-tabs>
+      </div>
+
+      <div  layout="column" flex="100" style="padding-top: 15px">
        
        <b>Material Catalog</b>
         <fieldset class="table-set" >
           
           <div flex="100" class="table-container">
-            <md-table-container ng-show="materialCatalog && materialCatalog.length>0">
+            <md-table-container ng-show="materialCatalogProgress">
               <table md-table md-row-select ng-model="materialSelected" md-progress="materialCatalogProgress">
                 <thead md-head >
                   <tr md-row>
@@ -156,7 +176,8 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="m" ng-repeat="m in materialCatalog" >
+                  <tr md-row md-auto-select md-select="m" ng-repeat="m in materialCatalog" 
+                      md-on-select="onSelectMaterialRow">
                     <td md-cell class="td-space">{{m.DESCRIPTION}}</td>
                     <td md-cell class="td-space">{{m.GROUP}}</td>
                     <td md-cell class="td-space">{{m.MATERIAL}}</td>
@@ -177,16 +198,14 @@
 
           <div flex="100" class="table-container-2">
             <label style="font-size: 12px;font-weight: bold;">Order Number:</label>
-          <select style="width: 100px" name="order" ng-model="orderSelected" ng-disabled="!shipToSelected || !shipTo2Selected || !soldToSelected || !payerSelected || !organizationSelected || !channelSelected || !divisionSelected || !officeSelected || !groupSelected" ng-change="changeOrder(orderSelected)">
-              <option value=""></option>
+          <select style="width: 100px" name="order" ng-model="orderSelected" ng-change="changeOrder(orderSelected)" ng-disabled="!shipToSelected || !shipTo2Selected || !soldToSelected || !payerSelected || !organizationSelected || !channelSelected || !divisionSelected || !officeSelected || !groupSelected">
+              <option value="0"></option>
               <option value="20168">20168</option>
               <option value="NEW">New SO</option>
             </select>
             &nbsp;
-           <label style="font-size: 12px;font-weight: bold;">Number of lines</label>
-           <input type="Number" style="width: 40px" ng-model="multiplier" min="1" max="30">
-            <!--<input style="width: 200px" type="range" ng-model="multiplier" min="1" max="30" step="1" ><b style="font-size: 12px">{{multiplier}}</b>
-            -->
+           <label style="font-size: 12px;font-weight: bold;" ng-show="!orderSelected || orderSelected == '0'">No Sales Document Selected yet</label>
+           <label style="font-size: 12px;font-weight: bold;" ng-show="salesOrder.length>0 ">Number of Lines items {{salesOrder.length}}</label>
           </div>
         </fieldset>
       </div> 
@@ -196,20 +215,24 @@
        <b>Sales Order Info</b>
         <fieldset class="table-set" >
           <div flex="100" class="table-container">
-            <md-table-container" ng-show="false">
-              <table md-table >
+            <md-table-container ng-show="readOrderProgress">
+              <table md-table md-row-select ng-model="salesOrderSelected" md-progress="readOrderProgress">
                 <thead md-head >
                   <tr md-row>
-                    <th md-column class="td-space"><span>Description</span></th>
-                    <th md-column class="td-space"><span>Group</span></th>
+                    <th md-column class="td-space"><span>LineNo</span></th>
                     <th md-column class="td-space"><span>Material</span></th>
                     <th md-column class="td-space"><span>Plant</span></th>
                     <th md-column class="td-space"><span>Price</span></th>
-                    <th md-column class="td-space"><span>Uom</span></th>
+                    <th md-column class="td-space"><span>Quality</span></th>
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row>
+                  <tr md-row md-auto-select md-select="s" ng-repeat="s in salesOrder" >
+                    <td md-cell class="td-space">{{s.line_no}}</td>
+                    <td md-cell class="td-space">{{s.material}}</td>
+                    <td md-cell class="td-space">{{s.plant}}</td>
+                    <td md-cell class="td-space">{{s.price}}</td>
+                    <td md-cell class="td-space">{{s.qty}}</td>                                       
                   </tr>
                 </tbody>
               </table>
@@ -218,7 +241,7 @@
         </fieldset>
        
           </div>
-
+      <!--
       <div style="padding-top: 20px" layout="column"  flex="100">
         <b>Execution Log</b>
       <fieldset class="table-set" >
@@ -234,31 +257,32 @@
           <button style="width: 100px">Log</button>
       </div>
     </div>
+  -->
 
 </div>
 
 
     
 
-  <div flex="10" flex-xs="100" >
-     <div layout="column" style="padding-top: 20px">
-           <md-button class="md-raised md-primary md-button">
-            BI Xfer
+  <div flex="15" flex-xs="100" ng-show="materialSelected.length>0">
+    <div layout="column" style="padding-top: 20px" ng-show="tabSelected == 0">
+           <md-button class="md-raised md-primary md-button" ng-click="addLines()" ng-disabled="addLinesPromisse">
+            Add lines
             </md-button>
+            <br/>
+            <md-slider-container style="width: 100px">
+              <md-slider ng-model="multiplier" min="0" max="30" aria-label="blue" id="multiplier-slider"
+                         class="md-primary">
+              </md-slider>
+              <md-input-container>
+                <input type="number" style="width: 50px" ng-model="multiplier" aria-label="blue" aria-controls="multiplier-slider">
+              </md-input-container>
+            </md-slider-container>
+            <br/>
             <md-button class="md-raised md-primary md-button">
-            Notes
+            Logs
             </md-button>
-            <md-button class="md-raised md-primary md-button" style="font-size: 13px">
-           Sales/Partner
-            </md-button>
-            <md-button ng-disabled="true" class="md-raised md-primary md-button">
-           Analytics
-            </md-button>
-            <md-button ng-disabled="true" class="md-raised md-primary md-button">
-            Add Others
-            </md-button>
-              
-            </div>
+    </div>
   </div>
    
     </div>
