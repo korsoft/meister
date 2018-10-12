@@ -136,7 +136,7 @@
         </div>
     </div>
 
-    <div flex="65" flex-xs="100" >
+    <div flex="60" flex-xs="100" >
 
       <div layout="column" flex="100">
         <md-tabs md-dynamic-height md-selected="tabSelected">
@@ -176,8 +176,8 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="m" ng-repeat="m in materialCatalog" 
-                      md-on-select="onSelectMaterialRow">
+                  <tr md-row md-auto-select md-select="m" md-on-select="onSelectMaterialRow"  ng-repeat="m in materialCatalog" 
+                      >
                     <td md-cell class="td-space">{{m.DESCRIPTION}}</td>
                     <td md-cell class="td-space">{{m.GROUP}}</td>
                     <td md-cell class="td-space">{{m.MATERIAL}}</td>
@@ -200,8 +200,7 @@
             <label style="font-size: 12px;font-weight: bold;">Order Number:</label>
           <select style="width: 100px" name="order" ng-model="orderSelected" ng-change="changeOrder(orderSelected)" ng-disabled="!shipToSelected || !shipTo2Selected || !soldToSelected || !payerSelected || !organizationSelected || !channelSelected || !divisionSelected || !officeSelected || !groupSelected">
               <option value="0"></option>
-              <option value="20168">20168</option>
-              <option value="NEW">New SO</option>
+              <option ng-repeat="o in orderArray" value="{{o.value}}" ng-selected="orderSelected == o.value">{{o.label}}</option>
             </select>
             &nbsp;
            <label style="font-size: 12px;font-weight: bold;" ng-show="!orderSelected || orderSelected == '0'">No Sales Document Selected yet</label>
@@ -227,7 +226,7 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" ng-repeat="s in salesOrder" >
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" ng-repeat="s in salesOrder" >
                     <td md-cell class="td-space">{{s.line_no}}</td>
                     <td md-cell class="td-space">{{s.material}}</td>
                     <td md-cell class="td-space">{{s.plant}}</td>
@@ -264,14 +263,66 @@
 
     
 
-  <div flex="15" flex-xs="100" ng-show="materialSelected.length>0">
-    <div layout="column" style="padding-top: 20px" ng-show="tabSelected == 0">
+  <div flex="20" flex-xs="100" ng-show="materialSelected.length>0">
+    <div layout="column" style="padding-top: 80px" ng-show="tabSelected == 0">
+    <md-toolbar md-scroll-shrink>
+      <div class="md-toolbar-tools">ATP</div>
+    </md-toolbar>
+     <md-content md-theme="altTheme">
+      <section>
+      <md-table-container ng-show="calculateATSProgress">
+              <table md-table md-progress="calculateATSProgress">
+                <tbody md-body> 
+                  <tr md-row >
+                    <td md-cell class="td-space">Unrestricted Stock</td>
+                    <td md-cell class="td-space" style="text-align: right;">{{ats.UNRESTRICTED_STCK}}</td>
+                  </tr>
+                  <tr md-row >
+                    <td md-cell class="td-space">Sales Reqs</td>
+                    <td md-cell class="td-space" style="text-align: right;">{{ats.SALES_REQS}}</td>
+                  </tr>
+                  <tr md-row >
+                    <td md-cell class="td-space">Orders</td>
+                    <td md-cell class="td-space" style="text-align: right;">{{ats.ORDERS}}</td>
+                  </tr>
+                  <tr md-row >
+                    <td md-cell class="td-space">Delivery Notes</td>
+                    <td md-cell class="td-space" style="text-align: right;">{{ats.DELIVERY}}</td>
+                  </tr>
+                  <tr md-row >
+                    <td md-cell class="td-space">Total Stock</td>
+                    <td md-cell class="td-space" style="text-align: right;">{{ats.TOTAL_STCK}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container> 
+    </section>
+  </md-content>
+  <br/><br/><br/>
+  <md-toolbar md-scroll-shrink ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW'">
+      <div class="md-toolbar-tools">Notes / Header</div>
+    </md-toolbar>
+     <md-content md-theme="altTheme" ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW'">
+      <section>
+        <md-list layout-padding>
+        <md-list-item class="md-3-line" ng-repeat="n in notes">
+            {{n.LINE}}
+            <div class="md-list-item-text">
+             <p>
+                {{n.TEXT}}
+              </p>
+            </div>
+        </md-list-item>
+    </section>
+  </md-content>
+
+  <md-content style="padding-top: 50px">
            <md-button class="md-raised md-primary md-button" ng-click="addLines()" ng-disabled="addLinesPromisse">
             Add lines
             </md-button>
             <br/>
-            <md-slider-container style="width: 100px">
-              <md-slider ng-model="multiplier" min="0" max="30" aria-label="blue" id="multiplier-slider"
+            <md-slider-container>
+              <md-slider ng-model="multiplier" min="0" max="100" aria-label="blue" id="multiplier-slider"
                          class="md-primary">
               </md-slider>
               <md-input-container>
@@ -282,6 +333,7 @@
             <md-button class="md-raised md-primary md-button">
             Logs
             </md-button>
+      </md-content>
     </div>
   </div>
    

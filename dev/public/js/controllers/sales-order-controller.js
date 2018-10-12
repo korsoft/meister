@@ -35,6 +35,11 @@
 			{"label":"311 - Group C1", value: "311"}
 		];
 
+		$scope.orderArray = [
+			{"label":"20168", value: "20168"},
+			{"label":"New SO", value: "NEW"}
+		];
+
 		$scope.shipToSelected = "";
 		$scope.shipTo2Selected = "";
 		$scope.soldToSelected = "";
@@ -50,8 +55,10 @@
 		$scope.log = "";
 		$scope.materialSelected = [];
 		$scope.salesOrderSelected = [];
-		$scope.orderSelected = 0;
+		$scope.orderSelected = "0";
 		$scope.tabSelected = 0;
+		$scope.ats = {};
+		$scope.notes = [];
 
 		function getExecutionTimeBetween2Dates(a, b){
 
@@ -114,6 +121,7 @@
 		          	console.log("SalesOrderService.execute result",result);		        	  
 		          	$scope.log = "Completed Add Lines Operation<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
+		          	$scope.changeOrder($scope.orderSelected);
 		     	  },
 		          function(errorPayload) {
 		              console.log('SalesOrderService.execute failure', errorPayload);
@@ -123,12 +131,43 @@
 
 		$scope.onSelectMaterialRow = function(){
 			console.log("onSelectMaterialRow",$scope.materialSelected);
+			$scope.calculateATS()
 		};
-		$scope.calculateATS = function(m){
-			console.log("Calculate ATS",m);
+
+		$scope.onSelectSalesOrderRow = function(){
+			console.log("onSelectSalesOrderRow",$scope.salesOrderSelected);
+		};
+
+		$scope.getListNotesByOrder = function(){
+			console.log("Calculate getListNotesByOrder",$scope.orderSelected);
+			$scope.salesOrder = [];
+			var endpoint = "Meister.Demo.PP.Read.Notes";
+			var json = '{"ORDERNO":"'+ $scope.orderSelected +'"}';
+			console.log("endpoint",endpoint);
+			console.log("json",json);
+
+			$scope.log = "Executing Read Notes<br/>" + $scope.log;
+				var start = new Date();
+				$scope.getListNotesProgress = SalesOrderService.execute(endpoint, json);
+				$scope.getListNotesProgress.then(
+		          function(result) { 
+		          	var end = new Date();
+		          	console.log("SalesOrderService.execute result",result);		        	  
+		          	$scope.log = "Completed Read Notes<br/>" + $scope.log;
+		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
+		          	$scope.notes = result.data.Json
+		     	  },
+		          function(errorPayload) {
+		              console.log('SalesOrderService.execute failure', errorPayload);
+		          }
+		     	);
+		};
+
+		$scope.calculateATS = function(){
+			console.log("Calculate ATS",$scope.materialSelected[0]);
 			$scope.salesOrder = [];
 			var endpoint = "Meister.Demo.RL.Stock";
-			var json = '{"MATERIAL":"'+$scope.materialSelected.MATERIAL+'","PLANT":"'+$scope.materialSelected.PLANT+'"}';
+			var json = '{"MATERIAL":"'+$scope.materialSelected[0].MATERIAL+'","PLANT":"'+$scope.materialSelected[0].PLANT+'"}';
 				console.log("endpoint",endpoint);
 				console.log("json",json);
 
@@ -141,6 +180,8 @@
 		          	console.log("SalesOrderService.execute result",result);		        	  
 		          	$scope.log = "Completed Calculate ATS<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
+		          	$scope.ats = result.data.Json[0].DETAILS[0].DETAIL;
+		          	console.log("ats",$scope.ats);
 		     	  },
 		          function(errorPayload) {
 		              console.log('SalesOrderService.execute failure', errorPayload);
@@ -157,7 +198,7 @@
 			if(order == "NEW"){ //crete a new order
 				$scope.salesOrder = [];
 				var endpoint = "Meister.Demo.RL.SD.New.Parked";
-				var json = '{"DOCTYPE":"ND","SALESORG":"' + $scope.organizationSelected + 
+				var json = '{"DOCTYPE":"CM","SALESORG":"' + $scope.organizationSelected + 
 					'","DIST":"' + $scope.channelSelected + '","DIVISION":"' + $scope.divisionSelected + 
 					'","SALESGRP":"' + $scope.groupSelected + '","SALESOFF":"' + $scope.officeSelected + 
 					'","SOLDTO":"' + $scope.soldToSelected + '","PAYER":"' + $scope.payerSelected + '"}';
@@ -173,12 +214,21 @@
 		          	console.log("SalesOrderService.execute result",result);		        	  
 		          	$scope.log = "Completed New SO<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
+		          	var order_no = result.data.Json[0].ORDERNO;
+		          	order_no = order_no.substring(order_no.length-5,order_no.length);
+		          	$scope.orderArray.push({
+		          		"label":order_no,
+		          		"value":order_no
+		          	});
+		          	$scope.orderSelected = order_no;
+		          	$scope.getListNotesByOrder();
 		     	  },
 		          function(errorPayload) {
 		              console.log('SalesOrderService.execute failure', errorPayload);
 		          }
 		     	);
 			} else { //load order selected
+				$scope.getListNotesByOrder();
 				var endpoint = "Meister.Demo.RL.SD.Read";
 				var json = '{"ORDER":"' + order + '"}';
 				$scope.log = "Executing Read SO<br/>" + $scope.log;
@@ -191,6 +241,7 @@
 		          	$scope.log = "Completed Read SO<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
 		          	$scope.salesOrder = result.data.Json[0].lineitem;
+		          	
 		     	  },
 		          function(errorPayload) {
 		              console.log('SalesOrderService.execute failure', errorPayload);
