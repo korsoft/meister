@@ -1,7 +1,8 @@
 (function(app) {
 	app.controller('SalesOrderController', ['$scope','$rootScope','$timeout','$mdSidenav','$mdMenu','$state',
+		'$mdDialog',
 		'SalesOrderService', 
-		function($scope,$rootScope,$timeout, $mdSidenav,$mdMenu, $state, SalesOrderService) {
+		function($scope,$rootScope,$timeout, $mdSidenav,$mdMenu, $state, $mdDialog, SalesOrderService) {
 		
 		$scope.shipToArray = [
 			{"label":"3000 - Smith Inc. LLC", value: "3000"}
@@ -187,6 +188,15 @@
 		              console.log('SalesOrderService.execute failure', errorPayload);
 		          }
 		     	);
+		};
+
+		$scope.showLogs = function(ev){
+			 $mdDialog.show({
+			      contentElement: '#myDialog',
+			      parent: angular.element(document.querySelector('#tablesContainerMain')),
+			      targetEvent: ev,
+			      clickOutsideToClose: true
+			    });
 		};
 
 		$scope.changeOrder = function(order){

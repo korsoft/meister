@@ -136,7 +136,20 @@
         </div>
     </div>
 
-    <div flex="60" flex-xs="100" >
+    <div flex="60" flex-xs="100" id="tablesContainerMain">
+
+       <div style="visibility: hidden">
+          <div class="md-dialog-container" id="myDialog" >
+            <md-dialog layout-padding>
+              <h2>Executing Log</h2>
+              <fieldset class="table-set" >
+                <div  class="table-container" style="background-color: #e2dfdf;width: 300px;height: 350px">
+                  <span ng-bind-html="log" style="font-size: 12px"></span>
+                </div>
+            </fieldset>
+            </md-dialog>
+          </div>
+        </div>
 
       <div layout="column" flex="100">
         <md-tabs md-dynamic-height md-selected="tabSelected">
@@ -299,13 +312,13 @@
     </section>
   </md-content>
   <br/><br/><br/>
-  <md-toolbar md-scroll-shrink ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW'">
+  <md-toolbar md-scroll-shrink ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW' && salesOrderSelected.length>0">
       <div class="md-toolbar-tools">Notes / Header</div>
     </md-toolbar>
-     <md-content md-theme="altTheme" ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW'">
+     <md-content md-theme="altTheme" ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW' && salesOrderSelected.length>0">
       <section>
         <md-list layout-padding>
-        <md-list-item class="md-3-line" ng-repeat="n in notes">
+        <md-list-item class="md-3-line" ng-repeat="n in notes | filter:{ LINE: salesOrderSelected[0].line_no }">
             {{n.LINE}}
             <div class="md-list-item-text">
              <p>
@@ -330,7 +343,7 @@
               </md-input-container>
             </md-slider-container>
             <br/>
-            <md-button class="md-raised md-primary md-button">
+            <md-button class="md-raised md-primary md-button" ng-click="showLogs($event)">
             Logs
             </md-button>
       </md-content>
@@ -340,4 +353,6 @@
     </div>
      
   </md-content>
+
+ 
 </div>
