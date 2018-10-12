@@ -315,6 +315,73 @@
        
           </div>
 
+
+
+<div layout="column"  flex="100" ng-show="tabSelected == 2">
+         <fieldset class="table-set" >
+          <div flex="100" class="table-container">
+            <md-table-container ng-show="salesPartnerProgress">
+              <table md-table md-row-select ng-model="salesHistorySelected" md-progress="salesPartnerProgress">
+                <thead md-head >
+                  <tr md-row>
+                    <th md-column class="td-space"><span>LineNo</span></th>
+                    <th md-column class="td-space"><span>Material</span></th>
+                    <th md-column class="td-space"><span>Uom</span></th>
+                    <th md-column class="td-space"><span>Price</span></th>
+                    <th md-column class="td-space"><span>Quality</span></th>
+                  </tr>
+                </thead>
+                <tbody md-body> 
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSalesHistorySelected" ng-repeat="s in salesHistory | filter:{MATERIAL : materialSelected[0].MATERIAL}" >
+                    <td md-cell class="td-space">{{s.line_item.LINE_ITEM}}</td>
+                    <td md-cell class="td-space">{{s.line_item.MATERIAL}}</td>
+                    <td md-cell class="td-space">{{s.line_item.UOM}}</td>
+                    <td md-cell class="td-space">{{s.line_item.PRICE}}</td>
+                    <td md-cell class="td-space">{{s.line_item.QUANTITY}}</td>                                       
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container> 
+          </div>
+        </fieldset>
+       
+          </div>
+
+
+<div layout="column"  flex="100" ng-show="tabSelected == 3" style="padding-top: 20px">
+         <fieldset class="table-set" ng-show="analytics" >
+          <div flex="100">
+            <b>Average Partner Sales in USD: {{analytics.average | currency : "" : 2}}</b><br/>
+            <b>Highest Sales Amount in USD: {{analytics.highsale | currency : "" : 2}}</b><br/>
+            <b>Highest Quantity in Product Units sold to Partner: {{analytics.mostqty}}</b><br/>
+            <b>Standard Deviation of the Average with respect to total sales in USD: {{analytics.stddev | currency : "" : 2}}</b>
+          </div>
+        </fieldset>
+</div>
+
+<div layout="column"  flex="100" ng-show="tabSelected == 3" style="padding-top: 20px">
+       
+        <fieldset class="table-set" >
+          <div flex="100">
+            <md-table-container ng-show="calculateAnalyticsProgress">
+              <table md-table md-progress="calculateAnalyticsProgress">
+                <thead md-head>
+                  <tr md-row>
+                    <th md-column class="td-space"><span>Top {{analytics.popmats.length}} Materials</span></th>
+                  </tr>
+                </thead>
+                <tbody md-body> 
+                  <tr md-row ng-repeat="m in analytics.popmats">
+                    <td md-cell class="td-space">{{m.material}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container> 
+          </div>
+        </fieldset>
+       
+          </div>
+
 </div>
 
 

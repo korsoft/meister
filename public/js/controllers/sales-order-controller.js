@@ -61,7 +61,10 @@
 		$scope.ats = {};
 		$scope.notes = [];
 		$scope.salesHistory = [];
+		$scope.salesMaterial = [];
 		$scope.salesHistorySelected = [];
+		$scope.salesMaterialSelected = [];
+		$scope.analytics = null;
 
 		function getExecutionTimeBetween2Dates(a, b){
 
@@ -106,6 +109,7 @@
 			}
 
 			$scope.getSalesPartner();
+			$scope.calculateAnalytics();
 		};
 
 		$scope.addLines = function(){
@@ -144,6 +148,40 @@
 			console.log("onSelectSalesOrderRow",$scope.salesOrderSelected);
 		};
 
+		$scope.calculateAnalytics = function(){
+			$scope.analytics = null;
+			console.log("calculateAnalytics...");
+			if($scope.shipToSelected && $scope.shipTo2Selected && $scope.soldToSelected && $scope.payerSelected &&
+			 	$scope.organizationSelected && $scope.channelSelected && $scope.divisionSelected && $scope.officeSelected 
+			 	&& $scope.groupSelected && $scope.tabSelected == 3){
+				
+				var endpoint = "Meister.Demo.RL.Analytics";
+				var json = '{"SALESORG":"' + $scope.organizationSelected + 
+					'","CHANNEL":"' + $scope.channelSelected + '","DIVISION":"' + $scope.divisionSelected + 
+					'","SALESGRP":"' + $scope.groupSelected + '","OFFICE":"' + $scope.officeSelected + 
+					'","SOLDTO":"' + $scope.soldToSelected + '"}';
+					console.log("endpoint",endpoint);
+					console.log("json",json);
+
+					$scope.log = "Executing Calulate Analytics<br/>" + $scope.log;
+					var start = new Date();
+					$scope.calculateAnalyticsProgress = SalesOrderService.execute(endpoint, json);
+					$scope.calculateAnalyticsProgress.then(
+			          function(result) { 
+			          	var end = new Date();
+			          	console.log("calculateAnalytics result",result);		        	  
+			          	$scope.log = "Completed Calculate Analytics<br/>" + $scope.log;
+			          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
+			          	$scope.analytics =  result.data.Json[0];
+			          	console.log("Analytics",$scope.analytics);
+			     	  },
+			          function(errorPayload) {
+			              console.log('SalesOrderService.execute failure', errorPayload);
+			          }
+			     	);
+			}
+		};
+
 		$scope.getListNotesByOrder = function(){
 			console.log("Calculate getListNotesByOrder",$scope.orderSelected);
 			$scope.salesOrder = [];
@@ -171,6 +209,7 @@
 
 		$scope.changeGeneric = function(){
 			$scope.getSalesPartner();
+			$scope.calculateAnalytics();
 		};
 
 		$scope.onSalesHistorySelected = function(){
