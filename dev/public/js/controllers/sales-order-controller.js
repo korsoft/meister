@@ -65,6 +65,7 @@
 		$scope.salesHistorySelected = [];
 		$scope.salesMaterialSelected = [];
 		$scope.analytics = null;
+		$scope.hiddenMaterial = false;
 
 		function getExecutionTimeBetween2Dates(a, b){
 
@@ -146,6 +147,14 @@
 
 		$scope.onSelectSalesOrderRow = function(){
 			console.log("onSelectSalesOrderRow",$scope.salesOrderSelected);
+		};
+
+		$scope.hideMaterials = function(){
+			$scope.hiddenMaterial = true;
+		};
+
+		$scope.showMaterials = function(){
+			$scope.hiddenMaterial = false;
 		};
 
 		$scope.calculateAnalytics = function(){
