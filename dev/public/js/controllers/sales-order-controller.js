@@ -145,6 +145,14 @@
 			$scope.getSalesPartner();
 		};
 
+		$scope.notesFilter = function(n){
+			if($scope.salesOrderSelected.length==0)
+				return n.LINE == "HDR";
+			else
+		      	return Number(n.LINE) == Number($scope.salesOrderSelected[0].line_no);
+		    
+		};
+
 		$scope.onSelectSalesOrderRow = function(){
 			console.log("onSelectSalesOrderRow",$scope.salesOrderSelected);
 		};
@@ -203,12 +211,13 @@
 				var start = new Date();
 				$scope.getListNotesProgress = SalesOrderService.execute(endpoint, json);
 				$scope.getListNotesProgress.then(
-		          function(result) { 
+		          function(result2) { 
 		          	var end = new Date();
-		          	console.log("SalesOrderService.execute result",result);		        	  
+		          	console.log("getListNotesByOrder result",result2);		        	  
 		          	$scope.log = "Completed Read Notes<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
-		          	$scope.notes = result.data.Json
+		          	$scope.notes = result2.data.Json
+		          	console.log("notes",$scope.notes);
 		     	  },
 		          function(errorPayload) {
 		              console.log('SalesOrderService.execute failure', errorPayload);

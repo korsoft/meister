@@ -434,19 +434,18 @@
     </section>
   </md-content>
   <br/><br/><br/>
-  <md-toolbar md-scroll-shrink ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW' && salesOrderSelected.length>0">
+  <md-toolbar md-scroll-shrink ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW'">
       <div class="md-toolbar-tools">Notes / Header</div>
     </md-toolbar>
-     <md-content md-theme="altTheme" ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW' && salesOrderSelected.length>0">
+     <md-content md-theme="altTheme" ng-show="orderSelected && orderSelected!='0' && orderSelected!='NEW'">
       <section>
         <md-list layout-padding>
-        <md-list-item class="md-3-line" ng-repeat="n in notes | filter:{ LINE: salesOrderSelected[0].line_no }">
-            {{n.LINE}}
+        <md-list-item class="md-3-line" ng-repeat="n in notes | filter:notesFilter"
+            style="border-bottom-style: dashed;border-bottom-width: 1px;">
             <div class="md-list-item-text">
-             <p>
-                {{n.TEXT}}
-              </p>
-            </div>
+              <div style="width: 20%;float: left;">{{n.LINE}}</div>
+              <div style="width: 80%;float: right;">{{n.TEXT}}</div>
+             </div>
         </md-list-item>
     </section>
   </md-content>
