@@ -437,5 +437,14 @@
 			}
 		};
 		
+		$scope.showAddNote = function(ev){
+			console.log("addd");
+			$mdDialog.show({
+			      contentElement: '#addNoteDialog',
+			      parent: angular.element(document.querySelector('#tablesContainerMain')),
+			      targetEvent: ev,
+			      clickOutsideToClose: true
+			});
+		};
 	}]);
 })(meister);

@@ -152,8 +152,8 @@ md-toolbar {
   }
 
   .table-container-2{
-    height:30px;
-    overflow: auto;
+     overflow: auto;
+     padding-top: 10px;
   }
 
   md-table-container {
@@ -201,6 +201,10 @@ md-toolbar {
   .md-tab {
     margin-top:10px;
     padding: 5px 10px;
+  }
+
+  md-pagination-wrapper {
+    height:0px;
   }
 
 }
