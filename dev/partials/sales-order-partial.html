@@ -184,8 +184,9 @@
           
           <div flex="100" class="table-container">
             <md-table-container ng-show="materialCatalogProgress">
+              <div style="overflow: auto; max-height: 200px">
               <table md-table md-row-select ng-model="materialSelected" md-progress="materialCatalogProgress">
-                <thead md-head >
+                <thead md-head fix-head >
                   <tr md-row>
                     <th md-column class="td-space"><span>Description</span></th>
                     <th md-column class="td-space"><span>Group</span></th>
@@ -207,6 +208,7 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
             </md-table-container> 
           </div>
         </fieldset>
@@ -302,8 +304,9 @@
         <fieldset class="table-set" >
           <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 393px' : 'height: 261px'}}">
             <md-table-container ng-show="salesPartnerProgress">
+            <div style="overflow: auto; {{hiddenMaterial ? 'height: 419px' : 'height: 200px'}}">
               <table md-table md-row-select ng-model="salesHistorySelected" md-progress="salesPartnerProgress">
-                <thead md-head >
+                <thead md-head fix-head>
                   <tr md-row>
                     <th md-column class="td-space"><span>LineNo</span></th>
                     <th md-column class="td-space"><span>Material</span></th>
@@ -322,6 +325,7 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
             </md-table-container> 
           </div>
         </fieldset>

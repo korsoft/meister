@@ -136,7 +136,7 @@
   height: 200px;
   background-color: #ABABAB;
   border: 1px solid black;
-  /*overflow: auto;*/ }
+  overflow-x: auto; }
 
 .demo-so .table-container-2 {
   height: 30px;
