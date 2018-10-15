@@ -356,7 +356,7 @@
 		          	$scope.log = "Completed Calculate ATS<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
 		          	$scope.ats = result.data.Json[0].DETAILS[0].DETAIL;
-		          	$scope.salesMaterial = result.data.Json[0].DETAILS[0].MRP;
+		          	//$scope.salesMaterial = result.data.Json[0].DETAILS[0].MRP;
 		          	console.log("ats",$scope.ats);
 		     	  },
 		          function(errorPayload) {

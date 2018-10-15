@@ -44,7 +44,7 @@
     <div layout="row" flex="100" layout-xs="column">
 
 
-     <div flex="20" flex-xs="100" style="padding-top: 80px">
+     <div flex="20" flex-xs="100" style="padding-top: 68px">
         <div layout="column" >
           <fieldset class="table-set" >
           <h5>Partner Info</h5>
@@ -166,7 +166,7 @@
         </md-tabs>
       </div>
 
-      <div  layout="column" flex="100" style="padding-top: 15px">
+      <div  layout="column" flex="100">
        <div>
         <div style="text-align: left;float: left;width: 50%;padding-top:20px">
           <b>Material Catalog</b>
@@ -233,10 +233,11 @@
        
        <b>Sales Order Info</b>
         <fieldset class="table-set" >
-          <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 456px' : 'height: 237px'}}">
+          <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 456px' : 'height: 237px'}};">
             <md-table-container ng-show="readOrderProgress">
+              <div style="overflow: auto; {{hiddenMaterial ? 'height: 418px' : 'height: 199px'}}">
               <table md-table md-row-select ng-model="salesOrderSelected" md-progress="readOrderProgress">
-                <thead md-head >
+                <thead md-head fix-head>
                   <tr md-row>
                     <th md-column class="td-space"><span>LineNo</span></th>
                     <th md-column class="td-space"><span>Material</span></th>
@@ -255,6 +256,7 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
             </md-table-container> 
           </div>
         </fieldset>
@@ -523,7 +525,7 @@
     
 
   <div flex="20" flex-xs="100" ng-show="materialSelected.length>0">
-    <div layout="column" style="padding-top: 80px" ng-show="tabSelected == 0">
+    <div layout="column" style="padding-top: 68px" ng-show="tabSelected == 0">
     <md-toolbar md-scroll-shrink>
       <div class="md-toolbar-tools">ATP</div>
     </md-toolbar>
