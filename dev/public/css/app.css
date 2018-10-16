@@ -140,7 +140,7 @@
   overflow-y: hidden; }
 
 .demo-so .table-container-2 {
-  overflow: auto;
+  /*overflow: auto;*/
   padding-top: 10px; }
 
 .demo-so md-table-container {
