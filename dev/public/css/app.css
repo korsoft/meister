@@ -136,11 +136,12 @@
   height: 200px;
   background-color: #ABABAB;
   border: 1px solid black;
-  overflow-x: auto; }
+  overflow-x: auto;
+  overflow-y: hidden; }
 
 .demo-so .table-container-2 {
-  height: 30px;
-  overflow: auto; }
+  overflow: auto;
+  padding-top: 10px; }
 
 .demo-so md-table-container {
   display: inline-table;
@@ -178,3 +179,6 @@
 .demo-so .md-tab {
   margin-top: 10px;
   padding: 5px 10px; }
+
+.demo-so md-pagination-wrapper {
+  height: 0px; }

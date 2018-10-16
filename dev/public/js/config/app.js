@@ -1,5 +1,5 @@
 var meister = angular.module('meister', ['ngMaterial', 'ngAnimate','ngSanitize', 'ngMessages',
- 'ngAria', 'ui.router','ngCookies','md.data.table','chart.js','fixed.table.header']);
+ 'ngAria', 'ui.router','ngCookies','md.data.table','chart.js']);
 
 meister.constant('SERVER_BASE_URL', "http://localhost:8000/api");
 

@@ -62,6 +62,7 @@
 		$scope.notes = [];
 		$scope.salesHistory = [];
 		$scope.salesMaterial = [];
+		$scope.salesMaterialPage = [];
 		$scope.salesHistorySelected = [];
 		$scope.salesMaterialSelected = [];
 		$scope.analytics = null;
@@ -71,6 +72,7 @@
 			text: "",
 			lineNumber:1
 		};
+		var ROW_BY_PAGE = 50;
 
 		function getExecutionTimeBetween2Dates(a, b){
 
@@ -337,10 +339,20 @@
 			}
 		};
 
+		$scope.showAddNote = function(ev){
+			 $mdDialog.show({
+			      contentElement: '#addNoteDialog',
+			      parent: angular.element(document.querySelector('#tablesContainerMain')),
+			      targetEvent: ev,
+			      clickOutsideToClose: true
+			    });
+		};
+		
 		$scope.calculateATS = function(){
 			console.log("Calculate ATS",$scope.materialSelected[0]);
 			$scope.salesOrder = [];
 			$scope.salesMaterial = [];
+			$scope.salesMaterialPage = [];
 			var endpoint = "Meister.Demo.RL.Stock";
 			var json = '{"MATERIAL":"'+$scope.materialSelected[0].MATERIAL+'","PLANT":"'+$scope.materialSelected[0].PLANT+'"}';
 				console.log("endpoint",endpoint);
@@ -356,7 +368,7 @@
 		          	$scope.log = "Completed Calculate ATS<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
 		          	$scope.ats = result.data.Json[0].DETAILS[0].DETAIL;
-		          	//$scope.salesMaterial = result.data.Json[0].DETAILS[0].MRP;
+		          	$scope.salesMaterial = result.data.Json[0].DETAILS[0].MRP;
 		          	console.log("ats",$scope.ats);
 		     	  },
 		          function(errorPayload) {

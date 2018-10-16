@@ -213,31 +213,29 @@
           
           <div flex="100" class="table-container">
             <md-table-container ng-show="materialCatalogProgress">
-              <div style="overflow: auto; max-height: 200px">
-              <table md-table md-row-select ng-model="materialSelected" md-progress="materialCatalogProgress">
-                <thead md-head fix-head >
+              <table md-virtual-repeat-container md-table md-row-select ng-model="materialSelected" md-progress="materialCatalogProgress">
+                <thead md-head >
                   <tr md-row>
-                    <th md-column class="td-space"><span>Description</span></th>
-                    <th md-column class="td-space"><span>Group</span></th>
-                    <th md-column class="td-space"><span>Material</span></th>
-                    <th md-column class="td-space"><span>Plant</span></th>
-                    <th md-column class="td-space"><span>Price</span></th>
-                    <th md-column class="td-space"><span>Uom</span></th>
+                    <th md-column class="td-space" ><span>Description</span></th>
+                    <th md-column class="td-space" ><span>Group</span></th>
+                    <th md-column class="td-space" ><span>Material</span></th>
+                    <th md-column class="td-space" ><span>Plant</span></th>
+                    <th md-column class="td-space" ><span>Price</span></th>
+                    <th md-column class="td-space" ><span>Uom</span></th>
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="m" md-on-select="onSelectMaterialRow"  ng-repeat="m in materialCatalog" 
+                  <tr md-row md-auto-select md-select="m" md-on-select="onSelectMaterialRow"  md-virtual-repeat="m in materialCatalog" 
                       >
-                    <td md-cell class="td-space">{{m.DESCRIPTION}}</td>
-                    <td md-cell class="td-space">{{m.GROUP}}</td>
-                    <td md-cell class="td-space">{{m.MATERIAL}}</td>
-                    <td md-cell class="td-space">{{m.PLANT}}</td>
-                    <td md-cell class="td-space">{{m.PRICE}}</td>
-                    <td md-cell class="td-space">{{m.UOM}}</td>                                       
+                    <td md-cell class="td-space" width="30%">{{m.DESCRIPTION}}</td>
+                    <td md-cell class="td-space" width="10%">{{m.GROUP}}</td>
+                    <td md-cell class="td-space" width="20%">{{m.MATERIAL}}</td>
+                    <td md-cell class="td-space" width="10%">{{m.PLANT}}</td>
+                    <td md-cell class="td-space" width="20%">{{m.PRICE}}</td>
+                    <td md-cell class="td-space" width="10%">{{m.UOM}}</td>                                       
                   </tr>
                 </tbody>
               </table>
-            </div>
             </md-table-container> 
           </div>
         </fieldset>
@@ -247,7 +245,7 @@
              
         <fieldset class="table-set" layout="row" style="border: 0px;padding-bottom: 0px;">
 
-          <div flex="60" layout="row" class="table-container-2">
+          <div flex="100" layout="row" class="table-container-2">
             <div style="padding-top: 5px;">
               <label style="font-size: 12px;font-weight: bold;">Order Number:</label>
             </div>
@@ -261,15 +259,13 @@
               <label style="font-size: 12px;font-weight: bold;" ng-show="!orderSelected || orderSelected == '0'">No Sales Document Selected yet</label>
               <label style="font-size: 12px;font-weight: bold;" ng-show="salesOrder.length>0 ">Number of Lines items {{salesOrder.length}}</label>
             </div>          
-          </div>
-          <div flex="39" layout="row" ng-show="materialSelected.length>0">
-            <div>
+          <div ng-show="materialSelected.length>0">
               <md-button class="md-raised md-primary md-button" ng-click="addLines()" 
                ng-disabled="disableAddLines">
                 Add lines
               </md-button>
             </div>
-            <div>
+            <div ng-show="materialSelected.length>0">
               <md-slider-container>
                   <md-slider ng-model="multiplier" min="0" max="100" aria-label="blue" id="multiplier-slider"
                              class="md-primary">
@@ -279,6 +275,8 @@
                   </md-input-container>
               </md-slider-container>
             </div>
+          </div>
+
         </fieldset>
       </div> 
 
@@ -287,9 +285,8 @@
         <fieldset class="table-set" >
           <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 456px' : 'height: 237px'}};">
             <md-table-container ng-show="readOrderProgress">
-              <div style="overflow: auto; {{hiddenMaterial ? 'height: 418px' : 'height: 199px'}}">
-              <table md-table md-row-select ng-model="salesOrderSelected" md-progress="readOrderProgress">
-                <thead md-head fix-head>
+              <table md-table md-row-select ng-model="salesOrderSelected" md-progress="readOrderProgress" md-body  md-virtual-repeat-container>
+                <thead md-head>
                   <tr md-row>
                     <th md-column class="td-space"><span>LineNo</span></th>
                     <th md-column class="td-space"><span>Material</span></th>
@@ -299,16 +296,15 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" ng-repeat="s in salesOrder" >
-                    <td md-cell class="td-space">{{s.line_no}}</td>
-                    <td md-cell class="td-space">{{s.material}}</td>
-                    <td md-cell class="td-space">{{s.plant}}</td>
-                    <td md-cell class="td-space">{{s.price}}</td>
-                    <td md-cell class="td-space">{{s.qty}}</td>                                       
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" >
+                    <td md-cell class="td-space" width="10%">{{s.line_no}}</td>
+                    <td md-cell class="td-space" width="25%">{{s.material}}</td>
+                    <td md-cell class="td-space" width="20%">{{s.plant}}</td>
+                    <td md-cell class="td-space" width="25%">{{s.price}}</td>
+                    <td md-cell class="td-space" width="10%">{{s.qty}}</td>                                       
                   </tr>
                 </tbody>
               </table>
-            </div>
             </md-table-container> 
           </div>
         </fieldset>
@@ -353,9 +349,8 @@
        <b>Sales Order Info</b>
         <fieldset class="table-set" >
           <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 393px' : 'height: 261px'}}">
-            <md-table-container ng-show="salesPartnerProgress">
-            <div style="overflow: auto; {{hiddenMaterial ? 'height: 419px' : 'height: 200px'}}">
-              <table md-table md-row-select ng-model="salesHistorySelected" md-progress="salesPartnerProgress">
+            <md-table-container ng-show="salesPartnerProgress" style="{{hiddenMaterial ? 'height: 393px' : 'height: 261px'}}">
+              <table md-virtual-repeat-container md-table md-row-select ng-model="salesHistorySelected" md-progress="salesPartnerProgress" style="{{hiddenMaterial ? 'height: 393px' : 'height: 261px'}}">
                 <thead md-head fix-head>
                   <tr md-row>
                     <th md-column class="td-space"><span>LineNo</span></th>
@@ -366,16 +361,15 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" md-on-select="onSalesHistorySelected" ng-repeat="s in salesHistory | filter:{MATERIAL : materialSelected[0].MATERIAL}" >
-                    <td md-cell class="td-space">{{s.line_item.LINE_ITEM}}</td>
-                    <td md-cell class="td-space">{{s.line_item.MATERIAL}}</td>
-                    <td md-cell class="td-space">{{s.line_item.UOM}}</td>
-                    <td md-cell class="td-space">{{s.line_item.PRICE}}</td>
-                    <td md-cell class="td-space">{{s.line_item.QUANTITY}}</td>                                       
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSalesHistorySelected" md-virtual-repeat="s in salesHistory | filter:{MATERIAL : materialSelected[0].MATERIAL}" >
+                    <td md-cell class="td-space" width="10%">{{s.line_item.LINE_ITEM}}</td>
+                    <td md-cell class="td-space" width="25%">{{s.line_item.MATERIAL}}</td>
+                    <td md-cell class="td-space" width="20%">{{s.line_item.UOM}}</td>
+                    <td md-cell class="td-space" width="25%">{{s.line_item.PRICE}}</td>
+                    <td md-cell class="td-space" width="20%">{{s.line_item.QUANTITY}}</td>                                       
                   </tr>
                 </tbody>
               </table>
-            </div>
             </md-table-container> 
           </div>
         </fieldset>
@@ -387,8 +381,8 @@
 <div layout="column"  flex="100" ng-show="tabSelected == 2">
          <fieldset class="table-set" >
           <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 450px' : 'height: 300px'}}">
-            <md-table-container ng-show="calculateATSProgress">
-              <table md-table md-row-select ng-model="salesMaterialSelected" md-progress="calculateATSProgress">
+            <md-table-container ng-show="calculateATSProgress" style="{{hiddenMaterial ? 'height: 450px' : 'height: 300px'}}">
+              <table md-virtual-repeat-container md-table md-row-select ng-model="salesMaterialSelected" md-progress="calculateATSProgress" style="{{hiddenMaterial ? 'height: 450px' : 'height: 300px'}}">
                 <thead md-head >
                   <tr md-row>
                     <th md-column class="td-space"><span>PLNGSEGMT</span></th>
@@ -448,7 +442,7 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" ng-repeat="s in salesMaterial" >
+                  <tr md-row md-auto-select md-select="s" md-virtual-repeat="s in salesMaterial">
                     <td md-cell class="td-space">{{s.PLNGSEGMT}}</td>
                     <td md-cell class="td-space">{{s.PLNGSEGNO}}</td>
                     <td md-cell class="td-space">{{s.SORT_DATE}}</td>
