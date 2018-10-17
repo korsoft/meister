@@ -210,15 +210,8 @@ md-toolbar {
 
 }
 
-md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
-  background-color: rgb(60,142,210);
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
+    color: rgba(255,255,255,0.87);
+    background-color: rgb(250,123,23)
 }
 
-.md-button.md-primary.md-fab.more, .md-button.md-primary.md-fab.less,
-.md-button.more,.md-button.less,
-.md-button.more:hover,.md-button.less:hover,
-.md-button.md-primary.md-raised.log,
-.md-button.md-primary.md-raised.log:hover,
-.md-button.md-primary.md-fab.more:not([disabled]):hover, .md-button.md-primary.md-fab.less:not([disabled]):hover {
-  background-color: rgb(223,169,56);
-}
