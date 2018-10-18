@@ -110,12 +110,6 @@
 
 .demo-so {
 
-md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
-  background-color:rgb(8,136,223);
-  color:white;
-  height:40px;
-  min-height:40px;
-}
 
 md-toolbar {
   height:30px;
@@ -148,7 +142,7 @@ md-toolbar {
 
   .table-container{
     height:200px;
-    background-color:#ABABAB;
+    background-color:#f3f2f2;
     border: 1px solid black;
     overflow-x: auto;
     overflow-y: hidden;
@@ -217,3 +211,23 @@ md-toolbar {
     background-color: rgb(255,165,40);
 }
 
+.main-menu-option-card {
+  height:120px;
+}
+
+md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar){
+  
+    background-color: #0888df;
+    color: white;
+    height: 40px;
+    min-height: 40px;
+    border-bottom: solid;
+    border-bottom-color: black;
+    border-bottom-width: 3px;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: #0888df;
+    color: white;
+
+}
