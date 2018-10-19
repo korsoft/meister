@@ -356,7 +356,7 @@
           <div ng-show="materialSelected.length>0" layout-xs="row" flex="15" flex-xs="50">
               <md-button class="md-raised md-primary md-button" ng-click="addLines()" 
                ng-disabled="disableAddLines" style="line-height:24px;min-height: 25px; margin: 0px">
-                Add lines
+                Add Items
               </md-button>
             </div>
             <div ng-show="materialSelected.length>0"  flex="25" layout-xs="row" flex-xs="50">
@@ -717,8 +717,8 @@
         <md-list-item class="md-3-line" md-virtual-repeat="n in notes | filter:notesFilter"
             style="border-bottom-style: solid;border-bottom-width: 1px;">
             <div class="md-list-item-text">
-              <div style="width: 20%;float: left;">{{n.LINE}}</div>
-              <div style="width: 80%;float: right;">{{n.TEXT}}</div>
+              <div style="width: 20%;float: left;" ng-show="n.LINE != 'HDR'">{{n.LINE}}</div>
+              <div style="{{n.LINE == 'HDR' ? 'width: 100%' : 'width: 80%'}};float: right;">{{n.TEXT}}</div>
              </div>
         </md-list-item>
     </section>
