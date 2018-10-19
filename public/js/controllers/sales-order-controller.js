@@ -145,6 +145,14 @@
 			$scope.calculateAnalytics();
 		};
 
+		$scope.formatSORT_DATE = function(date){
+			if(!date)
+				return "";
+			if(date.length != 8)
+				return date;
+			return date.substring(4,6) + "/" + date.substring(6,8) + "/" + date.substring(0,4);
+		};
+
 		$scope.saveNote = function(ev){
 			
 			var endpoint = "";

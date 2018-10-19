@@ -379,7 +379,7 @@
       <div layout="column"  flex="100" ng-show="tabSelected == 0">
        
         <fieldset class="table-set" >
-          <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 402px' : 'height: 208px'}};">
+          <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 434px' : 'height: 241px'}};">
             <md-table-container ng-show="readOrderProgress">
               <table md-table md-row-select ng-model="salesOrderSelected" md-progress="readOrderProgress" md-body  md-virtual-repeat-container>
                 <thead md-head>
@@ -483,9 +483,9 @@
 
 <div layout="column"  flex="100" ng-show="tabSelected == 2">
          <fieldset class="table-set" >
-          <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 450px' : 'height: 256px'}}">
-            <md-table-container ng-show="calculateATSProgress" style="{{hiddenMaterial ? 'height: 450px' : 'height: 256px'}}">
-              <table md-virtual-repeat-container md-table md-row-select ng-model="salesMaterialSelected" md-progress="calculateATSProgress" style="{{hiddenMaterial ? 'height: 450px' : 'height: 256px'}}">
+          <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 476px' : 'height: 282px'}}">
+            <md-table-container ng-show="calculateATSProgress" style="{{hiddenMaterial ? 'height: 476px' : 'height: 282px'}}">
+              <table md-virtual-repeat-container md-table md-row-select ng-model="salesMaterialSelected" md-progress="calculateATSProgress" style="{{hiddenMaterial ? 'height: 476px' : 'height: 282px'}}">
                 <thead md-head >
                   <tr md-row>
                     <th md-column class="td-space"><span>PLNGSEGMT</span></th>
@@ -548,7 +548,7 @@
                   <tr md-row md-auto-select md-select="s" md-virtual-repeat="s in salesMaterial">
                     <td md-cell class="td-space">{{s.PLNGSEGMT}}</td>
                     <td md-cell class="td-space">{{s.PLNGSEGNO}}</td>
-                    <td md-cell class="td-space">{{s.SORT_DATE}}</td>
+                    <td md-cell class="td-space">{{formatSORT_DATE(s.SORT_DATE)}}</td>
                     <td md-cell class="td-space">{{s.SORTIND_00}}</td>
                     <td md-cell class="td-space">{{s.SORTIND_01}}</td>
                     <td md-cell class="td-space">{{s.SORTIND_02}}</td>
@@ -715,7 +715,7 @@
      <md-content md-theme="altTheme" ng-show="!hiddenNotes && orderSelected && orderSelected!='0' && orderSelected!='NEW'" md-virtual-repeat-container style="height: 245px">
       <section>
         <md-list-item class="md-3-line" md-virtual-repeat="n in notes | filter:notesFilter"
-            style="border-bottom-style: dashed;border-bottom-width: 1px;">
+            style="border-bottom-style: solid;border-bottom-width: 1px;">
             <div class="md-list-item-text">
               <div style="width: 20%;float: left;">{{n.LINE}}</div>
               <div style="width: 80%;float: right;">{{n.TEXT}}</div>
