@@ -150,7 +150,7 @@
                 </md-button>
               </div>
           </div>
-          <div ng-show="!isMobileDevice || !collapseParterInfo " style="width: 100%;padding-top: 10px ">
+          <div ng-show="!isMobileDevice || !collapseParterInfo " style="width: 100%;padding-top: 13px ">
           <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px;margin-top: 10px" >
           <label>Ship To:</label>
           <md-select ng-model="shipToSelected" ng-required="true" ng-change="changeShipTo(shipToSelected)">
@@ -261,7 +261,7 @@
 
     <div flex="{{hiddenPartnerInfo ? '80' : '60'}}" flex-xs="100" id="tablesContainerMain">
 
-      <div layout="column" flex="100" style="{{isMobileDevice ? 'margin-top: 5px;margin-bottom: 20px' : 'margin-top: -6px;'}}">
+      <div layout="column" flex="100" style="{{!isDesktop ? 'margin-top: 5px;margin-bottom: 20px' : 'margin-top: -6px;'}}">
         <md-tabs md-dynamic-height md-selected="tabSelected">
           <md-tab label="Sales Order" md-on-select="changeGeneric()">
           </md-tab>
@@ -274,7 +274,7 @@
         </md-tabs>
       </div>
 
-      <div  layout="column" flex="100"  ng-show="tabSelected != 3 && tabSelected!=1">
+      <div  layout="column" flex="100"  ng-show="tabSelected != 3 && tabSelected!=1"">
        <div style="height: 25px">
         <div style="text-align: left;float: left;width: 50%;padding-top:0px">
           <b>Material Catalog</b>
@@ -361,7 +361,7 @@
             </div>
             <div  flex="30" flex-xs="50">
               <label style="font-size: 12px;font-weight: bold;" ng-show="!orderSelected">No Sales Document Selected yet</label>
-              <label style="font-size: 12px;font-weight: bold;" ng-show="salesOrder.length>0 ">Number of Lines items {{salesOrder.length}}</label>
+              <label style="font-size: 12px;font-weight: bold;" ng-show="salesOrder.length>0 ">Number of Line items {{salesOrder.length}}</label>
             </div>          
           <div ng-show="materialSelected.length>0" layout-xs="row" flex="15" flex-xs="50">
               <md-button class="md-raised md-primary md-button" ng-click="addLines()" 
