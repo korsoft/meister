@@ -280,4 +280,16 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
     .autocomplete{
       height:60px !important;
     }
+
+    .atp-table{
+      table.md-table:not(.md-row-select) td.md-cell:first-child,
+      table.md-table:not(.md-row-select) th.md-column:first-child{
+        padding:0;
+      }
+      table.md-table td.md-cell:last-child, table.md-table th.md-column:last-child{
+        padding:0;
+      }
+    }
+
+    
 }
