@@ -342,7 +342,7 @@
           <div flex="100" flex-xs="100" flex-sm="100" layout="row" layout-xs="column" layout-sm="column" class="table-container-2">
             <div flex="55" layout="row" layout-sm="row" layout-xs="column" flex-sm="100" flex-xs="100">
               <div style="{{!isMobileDevice ? 'margin-top: -20px' : 'height:60px'}}">
-                <md-autocomplete
+                <md-autocomplete class="autocomplete"
                     ng-disabled="!shipToSelected || !shipTo2Selected || !soldToSelected || !payerSelected || !organizationSelected || !channelSelected || !divisionSelected || !officeSelected || !groupSelected"
                     md-selected-item="orderSelected"
                     md-selected-item-change="changeOrder(o)"
