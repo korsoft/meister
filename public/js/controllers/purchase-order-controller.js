@@ -25,7 +25,7 @@
 			{"label":"New PO", value: "NEW"}
 		];
 
-		$scope.vendorSelected = "";
+        $scope.vendorSelected = "";
 		$scope.purchasingOrganizationSelected = "";
 		$scope.purchasegroupSelected = "";
 		$scope.plantSelected = "";
@@ -71,7 +71,6 @@
 
 		    }
 
-		 $scope.calculateItemSizeForOrderTable = 0;
 		 
 
 		$scope.isMobileDevice = $mdMedia('xs');
@@ -436,8 +435,6 @@
 		          	$scope.log = "Completed Read PO<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
 		          	$scope.salesOrder = result.data.Json[0].lineitem;
-		          	$scope.calculateItemSizeForOrderTable = $scope.salesOrder.length < 6 ? 0 : 100;
-		          	console.log("calculateItemSizeForOrderTable",$scope.calculateItemSizeForOrderTable);
 		     	  },
 		          function(errorPayload) {
 		          	$scope.disableAddLines = false;
