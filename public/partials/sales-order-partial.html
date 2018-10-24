@@ -408,7 +408,7 @@
                   </tr>
                 </thead>
                 <tbody md-body > 
-                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" md-item-size="100">
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-on-deselect="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" md-item-size="100">
                     <td md-cell class="td-space" width="10%">{{s.line_no}}</td>
                     <td md-cell class="td-space" width="30%">{{s.material}}</td>
                     <td md-cell class="td-space" width="20%">{{s.plant}}</td>
@@ -618,6 +618,9 @@
                     <td md-cell class="td-space">{{s.REC_REQD_QTY_ALT_UOM}}</td>
                     <td md-cell class="td-space">{{s.AVAIL_QTY_ALT_UOM}}</td>
                     <td md-cell class="td-space">{{s.TEXT_FIELD_ALT_UOM}}</td>
+                    <td md-cell class="td-space">{{s.ICON_TEXT}}</td>
+                    <td md-cell class="td-space">{{s.REQ_SEGMENT}}</td>
+                    <td md-cell class="td-space">{{s.STOCK_SEGMENT}}</td>
                   </tr>
                 </tbody>
               </table>

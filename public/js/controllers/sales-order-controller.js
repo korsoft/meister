@@ -274,6 +274,7 @@
 
 		$scope.onSelectSalesOrderRow = function(){
 			console.log("onSelectSalesOrderRow",$scope.salesOrderSelected);
+			$scope.getListNotesByOrder();
 		};
 
 		$scope.hideMaterials = function(){
