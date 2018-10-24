@@ -367,15 +367,15 @@
                 </thead>
                 <tbody md-body> 
                   <tr md-row md-virtual-repeat="s in salesHistorySelected[0].line_items" >
-                    <td md-cell class="td-space" >{{s.item_no}}</td>
-                    <td md-cell class="td-space" >{{s.material}}</td>
-                    <td md-cell class="td-space" >{{s.uom}}</td>
-                    <td md-cell class="td-space" >{{s.net_price | currency : "" : 2}}</td>
-                    <td md-cell class="td-space" >{{s.order_qty | currency : "" : 0}}</td>           
-                    <td md-cell class="td-space" >{{s.currency}}</td>                                       
-                    <td md-cell class="td-space" >{{s.mat_group}}</td>
-                    <td md-cell class="td-space" >{{s.plant}}</td>                                       
-                    <td md-cell class="td-space" >{{s.mat_description}}</td>                                       
+                    <td md-cell class="td-space" width="10%">{{s.item_no}}</td>
+                    <td md-cell class="td-space" width="20%">{{s.material}}</td>
+                    <td md-cell class="td-space" width="10%">{{s.uom}}</td>
+                    <td md-cell class="td-space" width="10%">{{s.net_price | currency : "" : 2}}</td>
+                    <td md-cell class="td-space" width="10%">{{s.order_qty | currency : "" : 0}}</td>           
+                    <td md-cell class="td-space" width="10%">{{s.currency}}</td>                                       
+                    <td md-cell class="td-space" width="10%">{{s.mat_group}}</td>
+                    <td md-cell class="td-space" width="10%">{{s.plant}}</td>                                       
+                    <td md-cell class="td-space" width="10%">{{s.mat_description}}</td>                                       
                   </tr>
                 </tbody>
               </table>
