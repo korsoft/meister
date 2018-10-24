@@ -411,7 +411,6 @@
 
 			 $mdDialog.show({
 			      contentElement: '#addNoteDialog',
-			      parent: angular.element(document.querySelector('#tablesContainerMain')),
 			      targetEvent: ev,
 			      clickOutsideToClose: true
 			    });
@@ -467,7 +466,6 @@
 		$scope.showLogs = function(ev){
 			 $mdDialog.show({
 			      contentElement: '#myDialog',
-			      parent: angular.element(document.querySelector('#tablesContainerMain')),
 			      targetEvent: ev,
 			      clickOutsideToClose: true
 			    });

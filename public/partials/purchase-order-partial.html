@@ -284,8 +284,8 @@
        
         <fieldset class="table-set" >
           <div flex="100" class="table-container" style="{{hiddenMaterial ? 'height: 434px' : 'height: 241px'}};">
-            <md-table-container ng-show="readOrderProgress">
-              <table md-table md-row-select ng-model="salesOrderSelected" md-progress="readOrderProgress" md-body  md-virtual-repeat-container>
+            <md-table-container ng-show="readOrderProgress" style="{{hiddenMaterial ? 'height: 434px' : 'height: 241px'}};">
+              <table md-table md-row-select ng-model="salesOrderSelected" md-progress="readOrderProgress" md-body  md-virtual-repeat-container style="{{hiddenMaterial ? 'height: 434px' : 'height: 241px'}};">
                 <thead md-head>
                   <tr md-row >
                     <th md-column class="td-space"><span>LineNo</span></th>
@@ -296,7 +296,8 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" md-item-size="100">
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" 
+                  md-item-size="calculateItemSizeForOrderTable">
                     <td md-cell class="td-space" width="10%">{{s.line_no}}</td>
                     <td md-cell class="td-space" width="30%">{{s.material}}</td>
                     <td md-cell class="td-space" width="20%">{{s.plant}}</td>

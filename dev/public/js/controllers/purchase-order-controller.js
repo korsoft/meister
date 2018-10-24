@@ -71,6 +71,8 @@
 
 		    }
 
+		 $scope.calculateItemSizeForOrderTable = 0;
+		 
 
 		$scope.isMobileDevice = $mdMedia('xs');
     	$scope.isTabletDevice = $mdMedia('sm');
@@ -359,7 +361,6 @@
 
 			 $mdDialog.show({
 			      contentElement: '#addNoteDialog',
-			      parent: angular.element(document.querySelector('#tablesContainerMain')),
 			      targetEvent: ev,
 			      clickOutsideToClose: true
 			    });
@@ -378,7 +379,6 @@
 		$scope.showLogs = function(ev){
 			 $mdDialog.show({
 			      contentElement: '#myDialog',
-			      parent: angular.element(document.querySelector('#tablesContainerMain')),
 			      targetEvent: ev,
 			      clickOutsideToClose: true
 			    });
@@ -436,7 +436,8 @@
 		          	$scope.log = "Completed Read PO<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
 		          	$scope.salesOrder = result.data.Json[0].lineitem;
-		          	
+		          	$scope.calculateItemSizeForOrderTable = $scope.salesOrder.length < 6 ? 0 : 100;
+		          	console.log("calculateItemSizeForOrderTable",$scope.calculateItemSizeForOrderTable);
 		     	  },
 		          function(errorPayload) {
 		          	$scope.disableAddLines = false;

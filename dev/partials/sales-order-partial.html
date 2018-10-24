@@ -2,7 +2,7 @@
 
   <div style="visibility: hidden;">
       <div class="md-dialog-container" id="atpContainer">
-          <md-dialog layout-padding style="height:200px">
+          <md-dialog layout-padding style="height:200px;width:80%;" >
             <md-toolbar md-scroll-shrink>
               <div class="md-toolbar-tools">ATP</div>
             </md-toolbar>
@@ -42,11 +42,11 @@
   </div>
   <div style="visibility: hidden">
           <div class="md-dialog-container" id="myDialog" >
-            <md-dialog layout-padding>
+            <md-dialog layout-padding  style="width:80%;">
               <h2>Executing Log</h2>
               <fieldset class="table-set" >
                 <div  class="table-container" style="background-color: #e2dfdf;width: 100%;height: 350px">
-                  <span ng-bind-html="log" style="font-size: 12px"></span>
+                  <span class="log-data" ng-bind-html="log" ></span>
                 </div>
             </fieldset>
             </md-dialog>
@@ -54,11 +54,11 @@
   </div>
   <div style="visibility: hidden">
     <div class="md-dialog-container" id="addNoteDialog" >
-      <md-dialog layout-padding>
+      <md-dialog layout-padding style="width:80%;">
         <div layout="column"  flex="100" style="padding-top: 20px">
  
          <b>{{note.title}}</b>
-          <fieldset class="table-set" >
+          <fieldset class="table-set" style="height: 350px;">
             <md-input-container class="md-block" flex="50" flex-gt-sm style="margin-bottom: 0px">
               <label>Note content</label>
               <textarea ng-model="note.text" cols="40" rows="3" md-detect-hidden></textarea>
@@ -737,8 +737,7 @@
         <md-list-item class="md-3-line" md-virtual-repeat="n in notes | filter:notesFilter"
             style="border-bottom-style: solid;border-bottom-width: 1px;">
             <div class="md-list-item-text"  layout="row" layout-xs="row" layout-sm="column">
-              <div style="width: 20%;float: left;" ng-show="n.LINE != 'HDR'">{{n.LINE}}</div>
-              <div style="{{n.LINE == 'HDR' ? 'width: 100%' : 'width: 80%'}};float: right;">{{n.TEXT}}</div>
+              <div style="width: 100%;float: right;">{{n.TEXT}}</div>
              </div>
         </md-list-item>
     </section>
