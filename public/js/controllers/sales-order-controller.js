@@ -415,6 +415,9 @@
 			      targetEvent: ev,
 			      clickOutsideToClose: true
 			    });
+			$timeout(function () {
+				document.getElementById('add_note').focus();
+			},1000);
 		};
 
 		$scope.showAtpDialog = function(ev){

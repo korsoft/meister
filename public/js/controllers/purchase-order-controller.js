@@ -359,11 +359,15 @@
 				$scope.note.title = "Adding Header notes";
 			}
 
-			 $mdDialog.show({
+			$mdDialog.show({
 			      contentElement: '#addNoteDialog',
 			      targetEvent: ev,
 			      clickOutsideToClose: true
 			    });
+			$timeout(function () {
+				document.getElementById('add_note').focus();
+			},1000);
+			
 		};
 
 		$scope.showPartnerInfo = function(){
