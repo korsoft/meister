@@ -737,8 +737,7 @@
         <md-list-item class="md-3-line" md-virtual-repeat="n in notes | filter:notesFilter"
             style="border-bottom-style: solid;border-bottom-width: 1px;">
             <div class="md-list-item-text"  layout="row" layout-xs="row" layout-sm="column">
-              <div style="width: 20%;float: left;" ng-show="n.LINE != 'HDR'">{{n.LINE}}</div>
-              <div style="{{n.LINE == 'HDR' ? 'width: 100%' : 'width: 80%'}};float: right;">{{n.TEXT}}</div>
+              <div style="width: 100%;float: right;">{{n.TEXT}}</div>
              </div>
         </md-list-item>
     </section>
