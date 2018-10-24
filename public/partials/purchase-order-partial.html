@@ -295,7 +295,7 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" 
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-on-deselect="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" 
                   md-item-size="100">
                     <td md-cell class="td-space" width="10%">{{s.line_no}}</td>
                     <td md-cell class="td-space" width="30%">{{s.material}}</td>

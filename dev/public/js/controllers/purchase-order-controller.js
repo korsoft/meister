@@ -25,7 +25,7 @@
 			{"label":"New PO", value: "NEW"}
 		];
 
-		$scope.vendorSelected = "";
+        $scope.vendorSelected = "";
 		$scope.purchasingOrganizationSelected = "";
 		$scope.purchasegroupSelected = "";
 		$scope.plantSelected = "";
@@ -71,7 +71,6 @@
 
 		    }
 
-		 $scope.calculateItemSizeForOrderTable = 0;
 		 
 
 		$scope.isMobileDevice = $mdMedia('xs');
@@ -215,7 +214,7 @@
 			$scope.disableAddLines = true;
 			var json = '{"Number":"'+  $scope.orderSelected.value + '","repeat":"' + $scope.multiplier + 
 				'","Lineitem":[{"line_no":"00010","material":"' + $scope.materialSelected[0].MATERIAL + 
-				'","plant":"' + $scope.materialSelected[0].PLANT + '","qty":"1500","price":"' + 
+				'","plant":"' + $scope.materialSelected[0].PLANT + '","qty":"'+Math.floor(Math.random() * 100)+'","price":"' + 
 				$scope.materialSelected[0].PRICE + '"}]}';
 				console.log("endpoint",endpoint);
 				console.log("json",json);
@@ -260,6 +259,7 @@
 
 		$scope.onSelectSalesOrderRow = function(){
 			console.log("onSelectSalesOrderRow",$scope.salesOrderSelected);
+			$scope.getListNotesByOrder();
 		};
 
 		$scope.hideMaterials = function(){
@@ -436,8 +436,6 @@
 		          	$scope.log = "Completed Read PO<br/>" + $scope.log;
 		          	$scope.log = getExecutionTimeBetween2Dates(start,end) + "<br/>" + $scope.log;
 		          	$scope.salesOrder = result.data.Json[0].lineitem;
-		          	$scope.calculateItemSizeForOrderTable = $scope.salesOrder.length < 6 ? 0 : 100;
-		          	console.log("calculateItemSizeForOrderTable",$scope.calculateItemSizeForOrderTable);
 		     	  },
 		          function(errorPayload) {
 		          	$scope.disableAddLines = false;
