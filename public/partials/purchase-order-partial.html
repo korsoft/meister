@@ -296,7 +296,7 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" >
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSelectSalesOrderRow" md-virtual-repeat="s in salesOrder" md-item-size="100">
                     <td md-cell class="td-space" width="10%">{{s.line_no}}</td>
                     <td md-cell class="td-space" width="30%">{{s.material}}</td>
                     <td md-cell class="td-space" width="20%">{{s.plant}}</td>
@@ -330,7 +330,7 @@
                   </tr>
                 </thead>
                 <tbody md-body> 
-                  <tr md-row md-auto-select md-select="s" md-on-select="onSalesHistorySelected" md-virtual-repeat="s in salesHistory | orderBy: salesHistoryQuery.order"" >
+                  <tr md-row md-auto-select md-select="s" md-on-select="onSalesHistorySelected" md-virtual-repeat="s in salesHistory | orderBy: salesHistoryQuery.order" >
                     <td md-cell class="td-space" width="25%">{{s.po_number}}</td>
                     <td md-cell class="td-space" width="25%">{{formatSORT_DATE(s.order_date)}}</td>
                     <td md-cell class="td-space" width="25%">{{s.purgrp}}</td>
