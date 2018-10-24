@@ -2,11 +2,11 @@
 
   <div style="visibility: hidden">
           <div class="md-dialog-container" id="myDialog" >
-            <md-dialog layout-padding>
+            <md-dialog layout-padding style="width:80%;">
               <h2>Executing Log</h2>
               <fieldset class="table-set" >
                 <div  class="table-container" style="background-color: #e2dfdf;width: 100%;height: 350px">
-                  <span ng-bind-html="log" style="font-size: 12px"></span>
+                  <span class="log-data" ng-bind-html="log" ></span>
                 </div>
             </fieldset>
             </md-dialog>
@@ -14,11 +14,11 @@
   </div>
   <div style="visibility: hidden">
     <div class="md-dialog-container" id="addNoteDialog" >
-      <md-dialog layout-padding>
-        <div layout="column"  flex="100" style="padding-top: 20px">
+      <md-dialog layout-padding style="width:80%;">
+        <div layout="column"  flex="100" style="padding-top: 20px;">
  
          <b>{{note.title}}</b>
-          <fieldset class="table-set" >
+          <fieldset class="table-set" style="height: 350px;" >
             <md-input-container class="md-block" flex="50" flex-gt-sm style="margin-bottom: 0px">
               <label>Note content</label>
               <textarea ng-model="note.text" cols="40" rows="3" md-detect-hidden></textarea>
