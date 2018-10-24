@@ -229,7 +229,7 @@
 			$scope.disableAddLines = true;
 			var json = '{"ORDERNO":"'+  $scope.orderSelected.value + '","REPEAT":"' + $scope.multiplier + 
 				'","MATERIAL":"' + $scope.materialSelected[0].MATERIAL + 
-				'","QTY":"1","UOM":"'+ $scope.materialSelected[0].UOM+'"}';
+				'","QTY":"'+Math.floor(Math.random() * 100)+'","UOM":"'+ $scope.materialSelected[0].UOM+'"}';
 				console.log("endpoint",endpoint);
 				console.log("json",json);
 

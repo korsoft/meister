@@ -214,7 +214,7 @@
 			$scope.disableAddLines = true;
 			var json = '{"Number":"'+  $scope.orderSelected.value + '","repeat":"' + $scope.multiplier + 
 				'","Lineitem":[{"line_no":"00010","material":"' + $scope.materialSelected[0].MATERIAL + 
-				'","plant":"' + $scope.materialSelected[0].PLANT + '","qty":"1500","price":"' + 
+				'","plant":"' + $scope.materialSelected[0].PLANT + '","qty":"'+Math.floor(Math.random() * 100)+'","price":"' + 
 				$scope.materialSelected[0].PRICE + '"}]}';
 				console.log("endpoint",endpoint);
 				console.log("json",json);
