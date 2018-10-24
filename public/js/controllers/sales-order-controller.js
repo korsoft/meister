@@ -5,7 +5,7 @@
 		function($scope,$rootScope,$timeout, $filter, $mdSidenav,$mdMenu, $mdMedia, $state, $mdDialog, SalesOrderService) {
 		
 		$scope.isMobileDevice = $mdMedia('xs');
-    	$scope.isTabletDevice = $mdMedia('md');
+    	$scope.isTabletDevice = $mdMedia('md') || $mdMedia('sm');
     	$scope.isDesktop = $mdMedia('gt-md');
 
 		$scope.shipToArray = [

@@ -74,7 +74,7 @@
 		 
 
 		$scope.isMobileDevice = $mdMedia('xs');
-    	$scope.isTabletDevice = $mdMedia('md');
+    	$scope.isTabletDevice = $mdMedia('md') || $mdMedia('sm');
     	$scope.isDesktop = $mdMedia('gt-md');
 		$scope.collapseParterInfo = true;
 		$scope.collapseSalesSelection = true;
