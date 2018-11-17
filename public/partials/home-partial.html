@@ -21,7 +21,11 @@
           </md-button>
         </md-menu-item>
         <md-menu-item>
+          <!--
           <md-button onclick="window.open('http://meistersdk.dyndns.org','_blank')">Reporting/SDK
+          </md-button>
+        -->
+        <md-button ng-click="gotoReporting()">Reporting/SDK
           </md-button>
         </md-menu-item>
       </md-menu-content>
@@ -128,7 +132,9 @@
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-raised md-primary md-button md-ink-ripple" style="color:white" onclick="window.open('http://meistersdk.dyndns.org','_blank')">Launch</md-button>
+          <!--
+          <md-button class="md-raised md-primary md-button md-ink-ripple" style="color:white" onclick="window.open('http://meistersdk.dyndns.org','_blank')">Launch</md-button>-->
+          <md-button class="md-raised md-primary md-button md-ink-ripple" style="color:white" ng-click="gotoReporting()">Launch</md-button>
         </md-card-actions>
       </md-card>
      </div>

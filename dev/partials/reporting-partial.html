@@ -1,0 +1,87 @@
+<div ng-controller="ReportingController" ng-cloak class="demo-so demo-background">
+
+
+<md-toolbar class="md-hue-2">
+
+	  <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="gotoHome()">
+         <md-icon ng-bind="'home'"></md-icon>
+        </md-button>
+
+        <h2 flex md-truncate>Meister Reporter</h2>
+
+    
+         <md-menu>
+       <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdOpenMenu,$event)">
+          <md-icon md-menu-origin ng-bind="'more_vert'"></md-icon>
+        </md-button>
+      <md-menu-content width="4" ng-mouseleave="close()">
+        <md-menu-item>
+          <md-button>
+            <md-icon ng-bind="'info'"></md-icon> About
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <md-icon ng-bind="'perm_identity'"></md-icon> User preferences
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+           <md-icon ng-bind="'power_settings_new'"></md-icon> Logout
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+      </div>
+
+    </md-toolbar>
+
+  <md-content class="md-padding">
+    
+    <div layout-gt-sm="row" layout="column">
+      <div layout-gt-sm="row" style="width: 300px">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Enter a t-code or report hint:</label>
+            <input ng-model="t_code_report_hint" ng-required="true">
+            </md-input-container>
+      </div>
+      <div>
+        <md-button class="md-raised md-primary" ng-disabled="t_code_report_hint == ''" ng-click="reportsFinder()">Search SAP</md-button>
+      </div>
+    </div>
+
+  <div layout="column" ng-show="reportsFinderProgress">
+    <label ng-show="report.columns">These are the t-codes and/or reports found at SAP with the hint passed:</label>
+    <label ng-show="!report.columns && !loadingReports">There aren't t-codes and/or reports</label>
+    <md-table-container >
+      <table md-table md-row-select 
+            ng-model="reportSelected" md-progress="reportsFinderProgress">
+        <thead md-head >
+          <tr md-row ng-show="loadingReports || report.columns">
+            <th md-column class="td-space"><span>Type</span></th>
+            <th md-column class="td-space" ng-repeat="key in report.columns"><span>{{key}}</span></th>
+          </tr>
+        </thead>
+        <tbody md-body> 
+          <tr md-row md-auto-select md-select="r" md-on-select="onSelectMaterialRow" ng-repeat="r in report.rows"
+              >
+            <td md-cell class="td-space">{{r.ENUM_ID}}</td>
+            <td md-cell class="td-space" ng-repeat="key in report.columns">{{r.ENUMS[0][key]}}</td>                                  
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container> 
+  </div>
+
+  </md-content>
+
+ <footer>
+      <md-toolbar class="md-scroll-shrink" style="min-height: 40px;background-color: rgb(250,250,250);color:black;margin-bottom: 50px;padding-top: 20px">
+        <div layout="row" layout-align="center center" flex layout-xs="column" >
+          <div style="text-align: center;font-size: 14px">Copyright © 2018 Gateway Architects. All rights reserved.</div>
+        </div>
+      </md-toolbar>
+    </footer>
+</div>
