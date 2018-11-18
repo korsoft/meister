@@ -91,23 +91,59 @@
         </thead>
         <tbody md-body> 
           <tr md-row md-select="p" md-on-select="onParamSelected" md-on-deselect="onParamUnSelected" ng-repeat="p in params">
-            <td md-cell class="td-space">{{p.PARAMETER.NAME}}</td>
-            <td md-cell class="td-space">{{p.$operation}}</td>
-            <td md-cell class="td-space"></td>
-            <td md-cell class="td-space"></td>
-            <td md-cell class="td-space">
-              <div ng-show="p.$selected" style="text-align: center">
-                <md-button  ng-show="!p.$edit" class="md-mini"  aria-label="Hide Materials"  
+            <td md-cell class="td-space" width="35%">
+              <span ng-if="!p.$edit">{{p.PARAMETER.NAME}}</span>
+              <div ng-if="p.$edit">
+                  <md-input-container class="md-block" style="margin:0px">
+                    <input ng-model="p.$paramEdit.PARAMETER.NAME" ng-required="true">
+                  </md-input-container>
+              </div>
+            </td>
+            <td md-cell class="td-space" width="10%">
+              <span ng-if="!p.$edit">{{p.$operation}}</span>
+              <div ng-if="p.$edit">
+                <md-input-container class="md-block" style="margin:0px">
+                  <md-select ng-model="p.$paramEdit.$operation" ng-required="true"ng-change="changeOperation(p)">
+                    <md-option ng-repeat="o in operations" ng-value="o" >
+                      {{o}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+            </td>
+            <td md-cell class="td-space" width="20%">
+              <span ng-if="!p.$edit">{{outputFrom(p)}}</span>
+              <div ng-if="p.$edit && (p.$paramEdit.$operation == 'BT' || p.$paramEdit.$operation == 'GT' || p.$paramEdit.$operation == 'LT' || p.$paramEdit.$operation == 'GE' || p.$paramEdit.$operation == 'LE')">
+                  <md-input-container class="md-block" style="margin:0px">
+                    <input ng-model="p.$paramEdit.$from" ng-required="true">
+                  </md-input-container>
+              </div>
+              <div ng-if="p.$edit && (p.$paramEdit.$operation == 'EQ' || p.$paramEdit.$operation == 'NE')">
+                  <md-chips name="values" ng-model="p.$paramEdit.$from" ng-required="true"
+                      placeholder="Add a value">
+              </div>
+            </td>
+            <td md-cell class="td-space" width="20%">
+              <span ng-if="!p.$edit">{{p.$to}}</span>
+              <div ng-if="p.$edit && p.$paramEdit.$operation == 'BT'">
+                  <md-input-container class="md-block" style="margin:0px">
+                    <input ng-model="p.$paramEdit.$to" ng-required="true">
+                  </md-input-container>
+              </div>
+            </td>
+            <td md-cell class="td-space" width="15%">
+              <div ng-if="p.$selected" style="text-align: center">
+                <md-button  ng-if="!p.$edit" class="md-mini"  aria-label="Hide Materials"  
                   style="margin:0px;min-width:0px"
                   title="Edit" ng-click="editParam(p)">
                     <md-icon class="material-icons">edit</md-icon>
                 </md-button>
-                <md-button  ng-show="p.$edit" class="md-mini"  aria-label="Hide Materials"  
+                <md-button  ng-if="p.$edit" class="md-mini"  aria-label="Hide Materials"  
                   style="margin:0px;min-width:0px" ng-click="updateParam(p)"
                   title="Update" >
                     <md-icon class="material-icons">done</md-icon>
                 </md-button>
-                <md-button  ng-show="p.$edit" class="md-mini"  aria-label="Hide Materials"  
+                <md-button  ng-if="p.$edit" class="md-mini"  aria-label="Hide Materials"  
                   style="margin:0px;min-width:0px"
                   title="Cancel" ng-click="cancelEditParam(p)">
                     <md-icon class="material-icons">cancel</md-icon>

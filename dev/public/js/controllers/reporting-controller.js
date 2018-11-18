@@ -12,7 +12,7 @@
 		$scope.paramsSelected = [];
 		$scope.loadingParams = false;
 
-		$scope.operations = ['EQ','BT','NE','CP'];
+		$scope.operations = ['EQ','BT','NE','GT','LT','GE','LE'];
 
 		$scope.reportsFinder = function(){
 			var endpoint = "Meister.SDK.Report.Finder";
@@ -65,6 +65,11 @@
 		          		p.$edit = false;
 		          		p.$selected = false;
 		          		p.$operation = $scope.operations[0];
+		          		if(p.$operation == 'EQ' || p.$operation == 'NE')
+		          			p.$from = [];
+		          		else
+		          			p.$from = "";
+		          		p.$to = "";
 		          	});
 		          },
 		          function(errorPayload) {
@@ -92,13 +97,39 @@
 
 		$scope.updateParam = function(p){
 			p.$edit = false;
-			p.operation = p.$paramEdit.operation;
-			//TODO
+			p.$operation = p.$paramEdit.$operation;
+			p.$from = p.$paramEdit.$from;
+			p.$to = p.$paramEdit.$to;
+			p.PARAMETER.NAME = p.$paramEdit.PARAMETER.NAME;
+			delete p.$paramEdit;
 		};
 
 		$scope.cancelEditParam = function(p){
 			p.$edit = false;
 			delete p.$paramEdit;
+		};
+
+		$scope.changeOperation = function(p){
+			console.log("changeOperation",p);
+			if(p.$paramEdit.$operation == 'EQ' || p.$paramEdit.$operation == 'NE')
+		        p.$paramEdit.$from = [];
+		    else
+		       p.$paramEdit.$from = "";
+			p.$paramEdit.$to = "";
+		};
+
+		$scope.outputFrom = function(p){
+			if(p.$operation == 'EQ' || p.$operation == 'NE'){
+				var values = "";
+				_.forEach(p.$from, function(v){
+					values += v + ",";
+				});
+				if(values.length>0)
+					return values.substring(0,values.length-1);
+				else
+					return values;
+			} else
+				return p.$from;
 		};
 
 	}]);
