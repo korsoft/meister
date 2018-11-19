@@ -11,8 +11,9 @@
 		$scope.params = [];
 		$scope.paramsSelected = [];
 		$scope.loadingParams = false;
-
 		$scope.operations = ['EQ','BT','NE','GT','LT','GE','LE'];
+
+		$scope.loadingReportSchedule = false;
 
 		$scope.reportsFinder = function(){
 			var endpoint = "Meister.SDK.Report.Finder";
@@ -130,6 +131,39 @@
 					return values;
 			} else
 				return p.$from;
+		};
+
+		$scope.executeSchedule = function(){
+			var endpoint = "Meister.SDK.Report.Scheduler";
+			var json = '[{"columns_named":"X","parameters":[';
+			_.forEach($scope.paramsSelected,function(param){
+				if(param.$operation == 'EQ' || param.$operation == 'NE'){
+					_.forEach(param.$from,function(p){
+						json += '{"high":"' + p + '","kind":"S","low":"' + p + '","option":"' + param.$operation + '","selname":"' + param.PARAMETER.NAME + '","sign":"I"},';	
+					});
+				} else if(param.$operation == 'BT'){
+					json += '{"high":"' + param.$to + '","kind":"S","low":"' + param.$from + '","option":"BT","selname":"' + param.PARAMETER.NAME + '","sign":"I"},';
+				} else {
+					json += '{"high":"' + param.$from + '","kind":"S","low":"' + param.$from + '","option":"' + param.$operation + '","selname":"' + param.PARAMETER.NAME + '","sign":"I"},';
+				}
+			});
+
+			json = json.substring(0,json.length-1);
+			json += '],"report":"' + $scope.reportSelected[0].ENUMS[0].NAME + '","username":"AROSENTHAL","variant":"","with_metadata":""}]';
+			console.log("json",json);
+			/*$scope.loadingReportSchedule = true;
+			$scope.reportScheduleProgress = ReportingService.execute(endpoint, json);
+			$scope.reportScheduleProgress.then(
+	          function(result) { 
+	          	$scope.loadingReportSchedule = false;
+	          	console.log("executeSchedule => result",result);
+	          },
+	          function(errorPayload) {
+	          	$scope.loadingReportSchedule = false;
+	              console.log('executeSchedule => failure', errorPayload);
+	          }
+	     	);*/
+			
 		};
 
 	}]);
